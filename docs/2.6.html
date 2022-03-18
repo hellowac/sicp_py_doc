@@ -1,0 +1,353 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>2.6 实现类和对象 - python SICP 教程</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="favicon.svg">
+                        <link rel="shortcut icon" href="favicon.png">
+                <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+                <link rel="stylesheet" href="css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">SICP Python 描述 中文版</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="ch1.html">第一章 使用函数构建抽象</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="1.1.html">1.1 引言</a></li><li class="chapter-item expanded "><a href="1.2.html">1.2 编程元素</a></li><li class="chapter-item expanded "><a href="1.3.html">1.3 定义新的函数</a></li><li class="chapter-item expanded "><a href="1.4.html">1.4 实践指南：函数的艺术</a></li><li class="chapter-item expanded "><a href="1.5.html">1.5 控制</a></li><li class="chapter-item expanded "><a href="1.6.html">1.6 高阶函数</a></li></ol></li><li class="chapter-item expanded "><a href="ch2.html">第二章 使用对象构建抽象</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2.1.html">2.1 引言</a></li><li class="chapter-item expanded "><a href="2.2.html">2.2 数据抽象</a></li><li class="chapter-item expanded "><a href="2.3.html">2.3 序列</a></li><li class="chapter-item expanded "><a href="2.4.html">2.4 可变数据</a></li><li class="chapter-item expanded "><a href="2.5.html">2.5 面向对象编程</a></li><li class="chapter-item expanded "><a href="2.6.html" class="active">2.6 实现类和对象</a></li><li class="chapter-item expanded "><a href="2.7.html">2.7 泛用方法</a></li></ol></li><li class="chapter-item expanded "><a href="ch3.html">第三章 计算机程序的构造和解释</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="3.1.html">3.1 引言</a></li><li class="chapter-item expanded "><a href="3.2.html">3.2 函数和所生成的过程</a></li><li class="chapter-item expanded "><a href="3.3.html">3.3 递归数据结构</a></li><li class="chapter-item expanded "><a href="3.4.html">3.4 异常</a></li><li class="chapter-item expanded "><a href="3.5.html">3.5 组合语言的解释器</a></li><li class="chapter-item expanded "><a href="3.6.html">3.6 抽象语言的解释器</a></li></ol></li><li class="chapter-item expanded "><a href="ch4.html">第四章 分布式和并行计算</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="4.1.html">4.1 引言</a></li><li class="chapter-item expanded "><a href="4.2.html">4.2 分布式系统</a></li><li class="chapter-item expanded "><a href="4.3.html">4.3 并行计算</a></li></ol></li><li class="chapter-item expanded "><a href="ch5.html">第五章 序列和协程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="5.1.html">5.1 引言</a></li><li class="chapter-item expanded "><a href="5.2.html">5.2 隐式序列</a></li><li class="chapter-item expanded "><a href="5.3.html">5.3 协程</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">python SICP 教程</h1>
+
+                    <div class="right-buttons">
+                                                <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <ul>
+<li><a href="#26-%E5%AE%9E%E7%8E%B0%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1">2.6 实现类和对象</a>
+<ul>
+<li><a href="#261-%E5%AE%9E%E4%BE%8B">2.6.1 实例</a></li>
+<li><a href="#262-%E7%B1%BB">2.6.2 类</a></li>
+<li><a href="#263-%E4%BD%BF%E7%94%A8%E6%89%80%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%AF%B9%E8%B1%A1">2.6.3 使用所实现的对象</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="26-实现类和对象"><a class="header" href="#26-实现类和对象">2.6 实现类和对象</a></h1>
+<blockquote>
+<p>来源：<a href="http://www-inst.eecs.berkeley.edu/%7Ecs61a/sp12/book/objects.html#implementing-classes-and-objects">2.6   Implementing Classes and Objects</a></p>
+<p>译者：<a href="https://github.com/wizardforcel">飞龙</a></p>
+<p>协议：<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
+</blockquote>
+<p>在使用面向对象编程范式时，我们使用对象隐喻来指导程序的组织。数据表示和操作的大部分逻辑都表达在类的定义中。在这一节中，我们会看到，类和对象本身可以使用函数和字典来表示。以这种方式实现对象系统的目的是展示使用对象隐喻并不需要特殊的编程语言。即使编程语言没有面向对象系统，程序照样可以面向对象。</p>
+<p>为了实现对象，我们需要抛弃点运算符（它需要语言的内建支持），并创建分发字典，它的行为和内建对象系统的元素差不多。我们已经看到如何通过分发字典实现消息传递行为。为了完整实现对象系统，我们需要在实例、类和基类之间发送消息，它们全部都是含有属性的字典。</p>
+<p>我们不会实现整个 Python 对象系统，它包含这篇文章没有涉及到的特性（比如元类和静态方法）。我们会专注于用户定义的类，不带有多重继承和内省行为（比如返回实例的类）。我们的实现并不遵循 Python 类型系统的明确规定。反之，它为实现对象隐喻的核心功能而设计。</p>
+<h2 id="261-实例"><a class="header" href="#261-实例">2.6.1 实例</a></h2>
+<p>我们从实例开始。实例拥有具名属性，例如账户余额，它可以被设置或获取。我们使用分发字典来实现实例，它会响应“get”和“set”属性值消息。属性本身保存在叫做<code>attributes</code>的局部字典中。</p>
+<p>就像我们在这一章的前面看到的那样，字典本身是抽象数据类型。我们使用列表来实现字典，我们使用偶对来实现列表，并且我们使用函数来实现偶对。就像我们以字典实现对象系统那样，要注意我们能够仅仅使用函数来实现对象。</p>
+<p>为了开始我们的实现，我们假设我们拥有一个类实现，它可以查找任何不是实例部分的名称。我们将类作为参数<code>cls</code>传递给<code>make_instance</code>。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def make_instance(cls):
+        &quot;&quot;&quot;Return a new object instance, which is a dispatch dictionary.&quot;&quot;&quot;
+        def get_value(name):
+            if name in attributes:
+                return attributes[name]
+            else:
+                value = cls['get'](name)
+                return bind_method(value, instance)
+        def set_value(name, value):
+            attributes[name] = value
+        attributes = {}
+        instance = {'get': get_value, 'set': set_value}
+        return instance
+</code></pre>
+<p><code>instance</code>是分发字典，它响应消息<code>get</code>和<code>set</code>。<code>set</code>消息对应 Python 对象系统的属性赋值：所有赋值的属性都直接储存在对象的局部属性字典中。在<code>get</code>中，如果<code>name</code>在局部<code>attributes</code>字典中不存在，那么它会在类中寻找。如果<code>cls</code>返回的<code>value</code>为函数，它必须绑定到实例上。</p>
+<p><strong>绑定方法值。</strong> <code>make_instance</code>中的<code>get_value</code>使用<code>get</code>寻找类中的具名属性，之后调用<code>bind_method</code>。方法的绑定只在函数值上调用，并且它会通过将实例插入为第一个参数，从函数值创建绑定方法的值。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def bind_method(value, instance):
+        &quot;&quot;&quot;Return a bound method if value is callable, or value otherwise.&quot;&quot;&quot;
+        if callable(value):
+            def method(*args):
+                return value(instance, *args)
+            return method
+        else:
+            return value
+</code></pre>
+<p>当方法被调用时，第一个参数<code>self</code>通过这个定义绑定到了<code>instance</code>的值上。</p>
+<h2 id="262-类"><a class="header" href="#262-类">2.6.2 类</a></h2>
+<p>类也是对象，在 Python 对象系统和我们这里实现的系统中都是如此。为了简化，我们假设类自己并没有类（在 Python 中，类本身也有类，几乎所有类都共享相同的类，叫做<code>type</code>）。类可以接受<code>get</code>和<code>set</code>消息，以及<code>new</code>消息。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def make_class(attributes, base_class=None):
+        &quot;&quot;&quot;Return a new class, which is a dispatch dictionary.&quot;&quot;&quot;
+        def get_value(name):
+            if name in attributes:
+                return attributes[name]
+            elif base_class is not None:
+                return base_class['get'](name)
+        def set_value(name, value):
+            attributes[name] = value
+        def new(*args):
+            return init_instance(cls, *args)
+        cls = {'get': get_value, 'set': set_value, 'new': new}
+        return cls
+</code></pre>
+<p>不像实例那样，类的<code>get</code>函数在属性未找到的时候并不查询它的类，而是查询它的<code>base_class</code>。类并不需要方法绑定。</p>
+<p><strong>实例化。</strong> <code>make_class</code>中的<code>new</code>函数调用了<code>init_instance</code>，它首先创建新的实例，之后调用叫做<code>__init__</code>的方法。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def init_instance(cls, *args):
+        &quot;&quot;&quot;Return a new object with type cls, initialized with args.&quot;&quot;&quot;
+        instance = make_instance(cls)
+        init = cls['get']('__init__')
+        if init:
+            init(instance, *args)
+        return instance
+</code></pre>
+<p>最后这个函数完成了我们的对象系统。我们现在拥有了实例，它的<code>set</code>是局部的，但是<code>get</code>会回溯到它们的类中。实例在它的类中查找名称之后，它会将自己绑定到函数值上来创建方法。最后类可以创建新的（<code>new</code>）实例，并且在实例创建之后立即调用它们的<code>__init__</code>构造器。</p>
+<p>在对象系统中，用户仅仅可以调用<code>create_class</code>，所有其他功能通过消息传递来使用。与之相似，Python 的对象系统由<code>class</code>语句来调用，它的所有其他功能都通过点表达式和对类的调用来使用。</p>
+<h2 id="263-使用所实现的对象"><a class="header" href="#263-使用所实现的对象">2.6.3 使用所实现的对象</a></h2>
+<p>我们现在回到上一节银行账户的例子。使用我们实现的对象系统，我们就可以创建<code>Account</code>类，<code>CheckingAccount</code>子类和它们的实例。</p>
+<p><code>Account</code>类通过<code>create_account_class</code>函数创建，它拥有类似于 Python <code>class</code>语句的结构，但是以<code>make_class</code>的调用结尾。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def make_account_class():
+        &quot;&quot;&quot;Return the Account class, which has deposit and withdraw methods.&quot;&quot;&quot;
+        def __init__(self, account_holder):
+            self['set']('holder', account_holder)
+            self['set']('balance', 0)
+        def deposit(self, amount):
+            &quot;&quot;&quot;Increase the account balance by amount and return the new balance.&quot;&quot;&quot;
+            new_balance = self['get']('balance') + amount
+            self['set']('balance', new_balance)
+            return self['get']('balance')
+        def withdraw(self, amount):
+            &quot;&quot;&quot;Decrease the account balance by amount and return the new balance.&quot;&quot;&quot;
+            balance = self['get']('balance')
+            if amount &gt; balance:
+                return 'Insufficient funds'
+            self['set']('balance', balance - amount)
+            return self['get']('balance')
+        return make_class({'__init__': __init__,
+                           'deposit':  deposit,
+                           'withdraw': withdraw,
+                           'interest': 0.02})
+</code></pre>
+<p>在这个函数中，属性名称在最后设置。不像 Python 的<code>class</code>语句，它强制内部函数和属性名称之间的一致性。这里我们必须手动指定属性名称和值的对应关系。</p>
+<p><code>Account</code>类最终由赋值来实例化。</p>
+<pre><code class="language-py">&gt;&gt;&gt; Account = make_account_class()
+</code></pre>
+<p>之后，账户实例通过<code>new</code>消息来创建，它需要名称来处理新创建的账户。</p>
+<pre><code class="language-py">&gt;&gt;&gt; jim_acct = Account['new']('Jim')
+</code></pre>
+<p>之后，<code>get</code>消息传递给<code>jim_acct</code>，来获取属性和方法。方法可以调用来更新账户余额。</p>
+<pre><code class="language-py">&gt;&gt;&gt; jim_acct['get']('holder')
+'Jim'
+&gt;&gt;&gt; jim_acct['get']('interest')
+0.02
+&gt;&gt;&gt; jim_acct['get']('deposit')(20)
+20
+&gt;&gt;&gt; jim_acct['get']('withdraw')(5)
+15
+</code></pre>
+<p>就像使用 Python 对象系统那样，设置实例的属性并不会修改类的对应属性：</p>
+<pre><code class="language-py">&gt;&gt;&gt; jim_acct['set']('interest', 0.04)
+&gt;&gt;&gt; Account['get']('interest')
+0.02
+</code></pre>
+<p><strong>继承。</strong> 我们可以创建<code>CheckingAccount</code>子类，通过覆盖类属性的子集。在这里，我们修改<code>withdraw</code>方法来收取费用，并且降低了利率。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def make_checking_account_class():
+        &quot;&quot;&quot;Return the CheckingAccount class, which imposes a $1 withdrawal fee.&quot;&quot;&quot;
+        def withdraw(self, amount):
+            return Account['get']('withdraw')(self, amount + 1)
+        return make_class({'withdraw': withdraw, 'interest': 0.01}, Account)
+</code></pre>
+<p>在这个实现中，我们在子类的<code>withdraw</code>中调用了基类<code>Account</code>的<code>withdraw</code>函数，就像在 Python 内建对象系统那样。我们可以创建子类本身和它的实例，就像之前那样：</p>
+<pre><code class="language-py">&gt;&gt;&gt; CheckingAccount = make_checking_account_class()
+&gt;&gt;&gt; jack_acct = CheckingAccount['new']('Jack')
+</code></pre>
+<p>它们的行为相似，构造函数也一样。每笔取款都会在特殊的<code>withdraw</code>函数中收费 $1，并且<code>interest</code>也拥有新的较低值。</p>
+<pre><code class="language-py">&gt;&gt;&gt; jack_acct['get']('interest')
+0.01
+&gt;&gt;&gt; jack_acct['get']('deposit')(20)
+20
+&gt;&gt;&gt; jack_acct['get']('withdraw')(5)
+14
+</code></pre>
+<p>我们的构建在字典上的对象系统十分类似于 Python 内建对象系统的实现。Python 中，任何用户定义类的实例，都有个特殊的<code>__dict__</code>属性，将对象的局部实例属性储存在字典中，就像我们的<code>attributes</code>字典那样。Python 的区别在于，它区分特定的特殊方法，这些方法和内建函数交互来确保那些函数能正常处理许多不同类型的参数。操作不同类型参数的函数是下一节的主题。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="2.5.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="2.7.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="2.5.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="2.7.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+                <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>5.2 隐式序列 - python SICP 教程</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="favicon.svg">
+                        <link rel="shortcut icon" href="favicon.png">
+                <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+                <link rel="stylesheet" href="css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">SICP Python 描述 中文版</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="ch1.html">第一章 使用函数构建抽象</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="1.1.html">1.1 引言</a></li><li class="chapter-item expanded "><a href="1.2.html">1.2 编程元素</a></li><li class="chapter-item expanded "><a href="1.3.html">1.3 定义新的函数</a></li><li class="chapter-item expanded "><a href="1.4.html">1.4 实践指南：函数的艺术</a></li><li class="chapter-item expanded "><a href="1.5.html">1.5 控制</a></li><li class="chapter-item expanded "><a href="1.6.html">1.6 高阶函数</a></li></ol></li><li class="chapter-item expanded "><a href="ch2.html">第二章 使用对象构建抽象</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2.1.html">2.1 引言</a></li><li class="chapter-item expanded "><a href="2.2.html">2.2 数据抽象</a></li><li class="chapter-item expanded "><a href="2.3.html">2.3 序列</a></li><li class="chapter-item expanded "><a href="2.4.html">2.4 可变数据</a></li><li class="chapter-item expanded "><a href="2.5.html">2.5 面向对象编程</a></li><li class="chapter-item expanded "><a href="2.6.html">2.6 实现类和对象</a></li><li class="chapter-item expanded "><a href="2.7.html">2.7 泛用方法</a></li></ol></li><li class="chapter-item expanded "><a href="ch3.html">第三章 计算机程序的构造和解释</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="3.1.html">3.1 引言</a></li><li class="chapter-item expanded "><a href="3.2.html">3.2 函数和所生成的过程</a></li><li class="chapter-item expanded "><a href="3.3.html">3.3 递归数据结构</a></li><li class="chapter-item expanded "><a href="3.4.html">3.4 异常</a></li><li class="chapter-item expanded "><a href="3.5.html">3.5 组合语言的解释器</a></li><li class="chapter-item expanded "><a href="3.6.html">3.6 抽象语言的解释器</a></li></ol></li><li class="chapter-item expanded "><a href="ch4.html">第四章 分布式和并行计算</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="4.1.html">4.1 引言</a></li><li class="chapter-item expanded "><a href="4.2.html">4.2 分布式系统</a></li><li class="chapter-item expanded "><a href="4.3.html">4.3 并行计算</a></li></ol></li><li class="chapter-item expanded "><a href="ch5.html">第五章 序列和协程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="5.1.html">5.1 引言</a></li><li class="chapter-item expanded "><a href="5.2.html" class="active">5.2 隐式序列</a></li><li class="chapter-item expanded "><a href="5.3.html">5.3 协程</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">python SICP 教程</h1>
+
+                    <div class="right-buttons">
+                                                <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <ul>
+<li><a href="#52-%E9%9A%90%E5%BC%8F%E5%BA%8F%E5%88%97">5.2 隐式序列</a>
+<ul>
+<li><a href="#521-python-%E8%BF%AD%E4%BB%A3%E5%99%A8">5.2.1 Python 迭代器</a></li>
+<li><a href="#522-for%E8%AF%AD%E5%8F%A5">5.2.2 <code>for</code>语句</a></li>
+<li><a href="#523-%E7%94%9F%E6%88%90%E5%99%A8%E5%92%8Cyield%E8%AF%AD%E5%8F%A5">5.2.3 生成器和<code>yield</code>语句</a></li>
+<li><a href="#524-%E5%8F%AF%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%B1%A1">5.2.4 可迭代对象</a></li>
+<li><a href="#525-%E6%B5%81">5.2.5 流</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="52-隐式序列"><a class="header" href="#52-隐式序列">5.2 隐式序列</a></h2>
+<p>序列可以使用一种程序结构来表示，它不将每个元素显式储存在内存中，这是高效处理有序数据的核心概念。为了将这个概念用于实践，我们需要构造对象来提供序列中所有元素的访问，但是不要事先把所有元素计算出来并储存。</p>
+<p>这个概念的一个简单示例就是第二章出现的<code>range</code>序列类型。<code>range</code>表示连续有界的整数序列。但是，它的每个元素并不显式在内存中表示，当元素从<code>range</code>中获取时，才被计算出来。所以，我们可以表示非常大的整数范围。只有范围的结束位置才被储存为<code>range</code>对象的一部分，元素都被凭空计算出来。</p>
+<pre><code class="language-py">&gt;&gt;&gt; r = range(10000, 1000000000)
+&gt;&gt;&gt; r[45006230]
+45016230
+</code></pre>
+<p>这个例子中，当构造范围示例时，并不是这个范围内的所有 999,990,000 个整数都被储存。反之，范围对象将第一个元素 10,000 与下标相加 45,006,230 来产生第 45,016,230 个元素。计算所求的元素值并不从现有的表示中获取，这是惰性计算的一个例子。计算机科学将惰性作为一种重要的计算工具加以赞扬。</p>
+<p>迭代器是提供底层有序数据集的有序访问的对象。迭代器在许多编程语言中都是内建对象，包括 Python。迭代器抽象拥有两个组成部分：一种获取底层元素序列的下一个元素的机制，以及一种标识元素序列已经到达末尾，没有更多剩余元素的机制。在带有内建对象系统的编程语言中，这个抽象通常相当于可以由类实现的特定接口。Python 的迭代器接口会在下一节中描述。</p>
+<p>迭代器的实用性来源于一个事实，底层数据序列并不能显式在内存中表达。迭代器提供了一种机制，可以依次计算序列中的每个值，但是所有元素不需要连续储存。反之，当下个元素从迭代器获取的时候，这个元素会按照请求计算，而不是从现有的内存来源中获取。</p>
+<p>范围可以惰性计算序列中的元素，因为序列的表示是统一的，并且任何元素都可以轻易从范围的起始和结束位置计算出来。迭代器支持更广泛的底层有序数据集的惰性生成，因为它们不需要提供底层序列任意元素的访问途径。反之，它们仅仅需要按照顺序，在每次其它元素被请求的时候，计算出序列的下一个元素。虽然不像序列可访问任意元素那样灵活（叫做随机访问），有序数据序列的顺序访问对于数据处理应用来说已经足够了。</p>
+<h3 id="521-python-迭代器"><a class="header" href="#521-python-迭代器">5.2.1 Python 迭代器</a></h3>
+<p>Python 迭代器接口包含两个消息。<code>__next__</code>消息向迭代器获取所表示的底层序列的下一个元素。为了对<code>__next__</code>方法调用做出回应，迭代器可以执行任何计算来获取或计算底层数据序列的下一个元素。<code>__next__</code>的调用让迭代器产生变化：它们向前移动迭代器的位置。所以多次调用<code>__next__</code>会有序返回底层序列的元素。在<code>__next__</code>的调用过程中，Python 通过<code>StopIteration</code>异常，来表示底层数据序列已经到达末尾。</p>
+<p>下面的<code>Letters</code>类迭代了从<code>a</code>到<code>d</code>字母的底层序列。成员变量<code>current</code>储存了序列中的当前字母。<code>__next__</code>方法返回这个字母，并且使用它来计算<code>current</code>的新值。</p>
+<pre><code class="language-py">&gt;&gt;&gt; class Letters(object):
+        def __init__(self):
+            self.current = 'a'
+        def __next__(self):
+            if self.current &gt; 'd':
+                raise StopIteration
+            result = self.current
+            self.current = chr(ord(result)+1)
+            return result
+        def __iter__(self):
+            return self
+</code></pre>
+<p><code>__iter__</code>消息是 Python 迭代器所需的第二个消息。它只是简单返回迭代器，它对于提供迭代器和序列的通用接口很有用，在下一节会描述。</p>
+<p>使用这个类，我们就可以访问序列中的字母：</p>
+<pre><code class="language-py">&gt;&gt;&gt; letters = Letters()
+&gt;&gt;&gt; letters.__next__()
+'a'
+&gt;&gt;&gt; letters.__next__()
+'b'
+&gt;&gt;&gt; letters.__next__()
+'c'
+&gt;&gt;&gt; letters.__next__()
+'d'
+&gt;&gt;&gt; letters.__next__()
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;&lt;stdin&gt;&quot;, line 12, in next
+StopIteration
+</code></pre>
+<p><code>Letters</code>示例只能迭代一次。一旦<code>__next__()</code>方法产生了<code>StopIteration</code>异常，它就从此之后一直这样了。除非创建新的实例，否则没有办法来重置它。</p>
+<p>迭代器也允许我们表示无限序列，通过实现永远不会产生<code>StopIteration</code>异常的<code>__next__</code>方法。例如，下面展示的<code>Positives</code>类迭代了正整数的无限序列：</p>
+<pre><code class="language-py">&gt;&gt;&gt; class Positives(object):
+        def __init__(self):
+            self.current = 0;
+        def __next__(self):
+            result = self.current
+            self.current += 1
+            return result
+        def __iter__(self):
+            return self
+</code></pre>
+<h3 id="522-for语句"><a class="header" href="#522-for语句">5.2.2 <code>for</code>语句</a></h3>
+<p>Python 中，序列可以通过实现<code>__iter__</code>消息用于迭代。如果一个对象表示有序数据，它可以在<code>for</code>语句中用作可迭代对象，通过回应<code>__iter__</code>消息来返回迭代器。这个迭代器应拥有<code>__next__()</code>方法，依次返回序列中的每个元素，最后到达序列末尾时产生<code>StopIteration</code>异常。</p>
+<pre><code class="language-py">&gt;&gt;&gt; counts = [1, 2, 3]
+&gt;&gt;&gt; for item in counts:
+        print(item)
+1
+2
+3
+</code></pre>
+<p>在上面的实例中，<code>counts</code>列表返回了迭代器，作为<code>__iter__()</code>方法调用的回应。<code>for</code>语句之后反复调用迭代器的<code>__next__()</code>方法，并且每次都将返回值赋给<code>item</code>。这个过程一直持续，直到迭代器产生了<code>StopIteration</code>异常，这时<code>for</code>语句就终止了。</p>
+<p>使用我们关于迭代器的知识，我们可以拿<code>while</code>、赋值和<code>try</code>语句实现<code>for</code>语句的求值规则：</p>
+<pre><code class="language-py">&gt;&gt;&gt; i = counts.__iter__()
+&gt;&gt;&gt; try:
+        while True:
+            item = i.__next__()
+            print(item)
+    except StopIteration:
+        pass
+1
+2
+3
+</code></pre>
+<p>在上面，调用<code>counts</code>的<code>__iter__</code>方法所返回的迭代器绑定到了名称<code>i</code>上面，便于依次获取每个元素。<code>StopIteration</code>异常的处理子句不做任何事情，但是这个异常的处理提供了退出<code>while</code>循环的控制机制。</p>
+<h3 id="523-生成器和yield语句"><a class="header" href="#523-生成器和yield语句">5.2.3 生成器和<code>yield</code>语句</a></h3>
+<p>上面的<code>Letters</code>和<code>Positives</code>对象需要我们引入一种新的字段，<code>self.current</code>，来跟踪序列的处理过程。在上面所示的简单序列中，这可以轻易实现。但对于复杂序列，<code>__next__()</code>很难在计算中节省空间。生成器允许我们通过利用 Python 解释器的特性定义更复杂的迭代。</p>
+<p>生成器是由一类特殊函数，叫做生成器函数返回的迭代器。生成器函数不同于普通的函数，因为它不在函数体中包含<code>return</code>语句，而是使用<code>yield</code>语句来返回序列中的元素。</p>
+<p>生成器不使用任何对象属性来跟踪序列的处理过程。它们控制生成器函数的执行，每次<code>__next__</code>方法调用时，它们执行到下一个<code>yield</code>语句。<code>Letters</code>迭代可以使用生成器函数实现得更加简洁。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def letters_generator():
+        current = 'a'
+        while current &lt;= 'd':
+            yield current
+            current = chr(ord(current)+1)
+&gt;&gt;&gt; for letter in letters_generator():
+        print(letter)
+a
+b
+c
+d
+</code></pre>
+<p>即使我们永不显式定义<code>__iter__()</code>或<code>__next__()</code>方法，Python 会理解当我们使用<code>yield</code>语句时，我们打算定义生成器函数。调用时，生成器函数并不返回特定的产出值，而是返回一个生成器（一种迭代器），它自己就可以返回产出的值。生成器对象拥有<code>__iter__</code>和<code>__next__</code>方法，每个对<code>__next__</code>的调用都会从上次停留的地方继续执行生成器函数，直到另一个<code>yield</code>语句执行的地方。</p>
+<p><code>__next__</code>第一次调用时，程序从<code>letters_generator</code>的函数体一直执行到进入<code>yield</code>语句。之后，它暂停并返回<code>current</code>值。<code>yield</code>语句并不破坏新创建的环境，而是为之后的使用保留了它。当<code>__next__</code>再次调用时，执行在它停留的地方恢复。<code>letters_generator</code>作用域中<code>current</code>和任何所绑定名称的值都会在随后的<code>__next__</code>调用中保留。</p>
+<p>我们可以通过手动调用<code>__next__()</code>来遍历生成器：</p>
+<pre><code class="language-py">&gt;&gt;&gt; letters = letters_generator()
+&gt;&gt;&gt; type(letters)
+&lt;class 'generator'&gt;
+&gt;&gt;&gt; letters.__next__()
+'a'
+&gt;&gt;&gt; letters.__next__()
+'b'
+&gt;&gt;&gt; letters.__next__()
+'c'
+&gt;&gt;&gt; letters.__next__()
+'d'
+&gt;&gt;&gt; letters.__next__()
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+StopIteration
+</code></pre>
+<p>在第一次<code>__next__()</code>调用之前，生成器并不会开始执行任何生成器函数体中的语句。</p>
+<h3 id="524-可迭代对象"><a class="header" href="#524-可迭代对象">5.2.4 可迭代对象</a></h3>
+<p>Python 中，迭代只会遍历一次底层序列的元素。在遍历之后，迭代器在<code>__next__()</code>调用时会产生<code>StopIteration</code>异常。许多应用需要迭代多次元素。例如，我们需要对一个列表迭代多次来枚举所有的元素偶对：</p>
+<pre><code class="language-py">&gt;&gt;&gt; def all_pairs(s):
+        for item1 in s:
+            for item2 in s:
+                yield (item1, item2)
+&gt;&gt;&gt; list(all_pairs([1, 2, 3]))
+[(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3), (3, 1), (3, 2), (3, 3)]
+</code></pre>
+<p>序列本身不是迭代器，但是它是可迭代对象。Python 的可迭代接口只包含一个消息，<code>__iter__</code>，返回一个迭代器。Python 中内建的序列类型在<code>__iter__</code>方法调用时，返回迭代器的新实例。如果一个可迭代对象在每次调用<code>__iter__</code>时返回了迭代器的新实例，那么它就能被迭代多次。</p>
+<p>新的可迭代类可以通过实现可迭代接口来定义。例如，下面的可迭代对象<code>LetterIterable</code>类在每次调用<code>__iter__</code>时返回新的迭代器来迭代字母。</p>
+<pre><code class="language-py">&gt;&gt;&gt; class LetterIterable(object):
+        def __iter__(self):
+            current = 'a'
+            while current &lt;= 'd':
+                yield current
+                current = chr(ord(current)+1)
+</code></pre>
+<p><code>__iter__</code>方法是个生成器函数，它返回一个生成器对象，产出从<code>'a'</code>到<code>'d'</code>的字母。</p>
+<p><code>Letters</code>迭代器对象在单次迭代之后就被“用完”了，但是<code>LetterIterable</code>对象可被迭代多次。所以，<code>LetterIterable</code>示例可以用于<code>all_pairs</code>的参数。</p>
+<pre><code class="language-py">&gt;&gt;&gt; letters = LetterIterable()
+&gt;&gt;&gt; all_pairs(letters).__next__()
+('a', 'a')
+</code></pre>
+<h3 id="525-流"><a class="header" href="#525-流">5.2.5 流</a></h3>
+<p>流提供了一种隐式表示有序数据的最终方式。流是惰性计算的递归列表。就像第三章的<code>Rlist</code>类那样，<code>Stream</code>实例可以响应对其第一个元素和剩余部分的获取请求。同样，<code>Stream</code>的剩余部分还是<code>Stream</code>。然而不像<code>RList</code>，流的剩余部分只在查找时被计算，而不是事先存储。也就是说流的剩余部分是惰性计算的。</p>
+<p>为了完成这个惰性求值，流会储存计算剩余部分的函数。无论这个函数在什么时候调用，它的返回值都作为流的一部分，储存在叫做<code>_rest</code>的属性中。下划线表示它不应直接访问。可访问的属性<code>rest</code>是个方法，它返回流的剩余部分，并在必要时计算它。使用这个设计，流可以储存计算剩余部分的方式，而不用总是显式储存它们。</p>
+<pre><code class="language-py">&gt;&gt;&gt; class Stream(object):
+        &quot;&quot;&quot;A lazily computed recursive list.&quot;&quot;&quot;
+        def __init__(self, first, compute_rest, empty=False):
+            self.first = first
+            self._compute_rest = compute_rest
+            self.empty = empty
+            self._rest = None
+            self._computed = False
+        @property
+        def rest(self):
+            &quot;&quot;&quot;Return the rest of the stream, computing it if necessary.&quot;&quot;&quot;
+            assert not self.empty, 'Empty streams have no rest.'
+            if not self._computed:
+                self._rest = self._compute_rest()
+                self._computed = True
+            return self._rest
+        def __repr__(self):
+            if self.empty:
+                return '&lt;empty stream&gt;'
+            return 'Stream({0}, &lt;compute_rest&gt;)'.format(repr(self.first))
+&gt;&gt;&gt; Stream.empty = Stream(None, None, True)
+</code></pre>
+<p>递归列表可使用嵌套表达式来定义。例如，我们可以创建<code>RList</code>，来表达<code>1</code>和<code>5</code>的序列，像下面这样：</p>
+<pre><code class="language-py">&gt;&gt;&gt; r = Rlist(1, Rlist(2+3, Rlist.empty))
+</code></pre>
+<p>与之类似，我们可以创建一个<code>Stream</code>来表示相同序列。<code>Stream</code>在请求剩余部分之前，并不会实际计算下一个元素<code>5</code>。</p>
+<pre><code class="language-py">&gt;&gt;&gt; s = Stream(1, lambda: Stream(2+3, lambda: Stream.empty))
+</code></pre>
+<p>这里，<code>1</code>是流的第一个元素，后面的<code>lambda</code>表达式是用于计算流的剩余部分的函数。被计算的流的第二个元素又是一个返回空流的函数。</p>
+<p>访问递归列表<code>r</code>和流<code>s</code>中的元素拥有相似的过程。但是，<code>5</code>储存在了<code>r</code>之中，而对于<code>s</code>来说，它在首次被请求时通过加法来按要求计算。</p>
+<pre><code class="language-py">&gt;&gt;&gt; r.first
+1
+&gt;&gt;&gt; s.first
+1
+&gt;&gt;&gt; r.rest.first
+5
+&gt;&gt;&gt; s.rest.first
+5
+&gt;&gt;&gt; r.rest
+Rlist(5)
+&gt;&gt;&gt; s.rest
+Stream(5, &lt;compute_rest&gt;)
+</code></pre>
+<p>虽然 <code>r</code> 的 <code>rest</code> 是一个单元素递归列表，但 <code>s</code> 的其余部分包括一个计算其余部分的函数；它将返回空流的事实可能还没有被发现。</p>
+<p>当构造一个 <code>Stream</code> 实例时，字段 <code>self._computed</code> 为 <code>False</code> ，表示 <code>Stream</code> 的 <code>_rest</code> 还没有被计算。当通过点表达式请求 <code>rest</code> 属性时，会调用 <code>rest</code> 方法，以 <code>self._rest = self.compute_rest</code> 触发计算。由于 <code>Stream</code> 中的缓存机制，<code>compute_rest</code> 函数只被调用一次。</p>
+<p><code>compute_rest</code> 函数的基本属性是它不接受任何参数，并返回一个 <code>Stream</code>。</p>
+<p>惰性求值使我们能够用流来表示无限的顺序数据集。例如，我们可以从任意 <code>first</code> 开始表示递增的整数。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def make_integer_stream(first=1):
+      def compute_rest():
+        return make_integer_stream(first+1)
+      return Stream(first, compute_rest)
+&gt;&gt;&gt; ints = make_integer_stream()
+&gt;&gt;&gt; ints
+Stream(1, &lt;compute_rest&gt;)
+&gt;&gt;&gt; ints.first
+1
+</code></pre>
+<p>当<code>make_integer_stream</code>首次被调用时，它返回了一个流，流的<code>first</code>是序列中第一个整数（默认为<code>1</code>）。但是，<code>make_integer_stream</code>实际是递归的，因为这个流的<code>compute_rest</code>以自增的参数再次调用了<code>make_integer_stream</code>。这会让<code>make_integer_stream</code>变成递归的，同时也是惰性的。</p>
+<pre><code class="language-py">&gt;&gt;&gt; ints.first
+1
+&gt;&gt;&gt; ints.rest.first
+2
+&gt;&gt;&gt; ints.rest.rest
+Stream(3, &lt;compute_rest&gt;)
+</code></pre>
+<p>无论何时请求整数流的<code>rest</code>，都仅仅递归调用<code>make_integer_stream</code>。</p>
+<p>操作序列的相同高阶函数 -- <code>map</code>和<code>filter</code> -- 同样可应用于流，虽然它们的实现必须修改来惰性调用它们的参数函数。<code>map_stream</code>在一个流上映射函数，这会产生一个新的流。局部定义的<code>compute_rest</code>函数确保了无论什么时候<code>rest</code>被计算出来，这个函数都会在流的剩余部分上映射。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def map_stream(fn, s):
+        if s.empty:
+            return s
+        def compute_rest():
+            return map_stream(fn, s.rest)
+        return Stream(fn(s.first), compute_rest)
+</code></pre>
+<p>流可以通过定义<code>compute_rest</code>函数来过滤，这个函数在流的剩余部分上调用过滤器函数。如果过滤器函数拒绝了流的第一个元素，剩余部分会立即计算出来。因为<code>filter_stream</code>是递归的，剩余部分可能会多次计算直到找到了有效的<code>first</code>元素。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def filter_stream(fn, s):
+        if s.empty:
+            return s
+        def compute_rest():
+            return filter_stream(fn, s.rest)
+        if fn(s.first):
+            return Stream(s.first, compute_rest)
+        return compute_rest()
+</code></pre>
+<p><code>map_stream</code>和<code>filter_stream</code>展示了流式处理的常见模式：无论流的剩余部分何时被计算，局部定义的<code>compute_rest</code>函数都会对流的剩余部分递归调用某个处理函数。</p>
+<p>为了观察流的内容，我们需要将其截断为有限长度，并转换为 Python <code>list</code>。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def truncate_stream(s, k):
+        if s.empty or k == 0:
+            return Stream.empty
+        def compute_rest():
+            return truncate_stream(s.rest, k-1)
+        return Stream(s.first, compute_rest)
+&gt;&gt;&gt; def stream_to_list(s):
+        r = []
+        while not s.empty:
+            r.append(s.first)
+            s = s.rest
+        return r
+</code></pre>
+<p>这些便利的函数允许我们验证<code>map_stream</code>的实现，使用一个非常简单的例子，从<code>3</code>到<code>7</code>的整数平方。</p>
+<pre><code class="language-py">&gt;&gt;&gt; s = make_integer_stream(3)
+&gt;&gt;&gt; s
+Stream(3, &lt;compute_rest&gt;)
+&gt;&gt;&gt; m = map_stream(lambda x: x*x, s)
+&gt;&gt;&gt; m
+Stream(9, &lt;compute_rest&gt;)
+&gt;&gt;&gt; stream_to_list(truncate_stream(m, 5))
+[9, 16, 25, 36, 49]
+</code></pre>
+<p>我们可以使用我们的<code>filter_stream</code>函数来定义素数流，使用埃拉托斯特尼筛法（sieve of Eratosthenes），它对整数流进行过滤，移除第一个元素的所有倍数数值。通过成功过滤出每个素数，所有合数都从流中移除了。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def primes(pos_stream):
+        def not_divible(x):
+            return x % pos_stream.first != 0
+        def compute_rest():
+            return primes(filter_stream(not_divible, pos_stream.rest))
+        return Stream(pos_stream.first, compute_rest)
+</code></pre>
+<p>通过截断<code>primes</code>流，我们可以枚举素数的任意前缀：</p>
+<pre><code class="language-py">&gt;&gt;&gt; p1 = primes(make_integer_stream(2))
+&gt;&gt;&gt; stream_to_list(truncate_stream(p1, 7))
+[2, 3, 5, 7, 11, 13, 17]
+</code></pre>
+<p>流和迭代器不同，因为它们可以多次传递给纯函数，并且每次都产生相同的值。素数流并没有在转换为列表之后“用完”。也就是说，在将流的前缀转换为列表之后，<code>p1</code>的第一个元素仍旧是<code>2</code>。</p>
+<pre><code class="language-py">&gt;&gt;&gt; p1.first
+2
+</code></pre>
+<p>就像递归列表提供了序列抽象的简单实现，流提供了简单、函数式的递归数据结构，它通过高阶函数的使用实现了惰性求值。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="5.1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="5.3.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="5.1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="5.3.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+                <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>1.5 控制 - python SICP 教程</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="favicon.svg">
+                        <link rel="shortcut icon" href="favicon.png">
+                <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+                <link rel="stylesheet" href="css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">SICP Python 描述 中文版</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="ch1.html">第一章 使用函数构建抽象</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="1.1.html">1.1 引言</a></li><li class="chapter-item expanded "><a href="1.2.html">1.2 编程元素</a></li><li class="chapter-item expanded "><a href="1.3.html">1.3 定义新的函数</a></li><li class="chapter-item expanded "><a href="1.4.html">1.4 实践指南：函数的艺术</a></li><li class="chapter-item expanded "><a href="1.5.html" class="active">1.5 控制</a></li><li class="chapter-item expanded "><a href="1.6.html">1.6 高阶函数</a></li></ol></li><li class="chapter-item expanded "><a href="ch2.html">第二章 使用对象构建抽象</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2.1.html">2.1 引言</a></li><li class="chapter-item expanded "><a href="2.2.html">2.2 数据抽象</a></li><li class="chapter-item expanded "><a href="2.3.html">2.3 序列</a></li><li class="chapter-item expanded "><a href="2.4.html">2.4 可变数据</a></li><li class="chapter-item expanded "><a href="2.5.html">2.5 面向对象编程</a></li><li class="chapter-item expanded "><a href="2.6.html">2.6 实现类和对象</a></li><li class="chapter-item expanded "><a href="2.7.html">2.7 泛用方法</a></li></ol></li><li class="chapter-item expanded "><a href="ch3.html">第三章 计算机程序的构造和解释</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="3.1.html">3.1 引言</a></li><li class="chapter-item expanded "><a href="3.2.html">3.2 函数和所生成的过程</a></li><li class="chapter-item expanded "><a href="3.3.html">3.3 递归数据结构</a></li><li class="chapter-item expanded "><a href="3.4.html">3.4 异常</a></li><li class="chapter-item expanded "><a href="3.5.html">3.5 组合语言的解释器</a></li><li class="chapter-item expanded "><a href="3.6.html">3.6 抽象语言的解释器</a></li></ol></li><li class="chapter-item expanded "><a href="ch4.html">第四章 分布式和并行计算</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="4.1.html">4.1 引言</a></li><li class="chapter-item expanded "><a href="4.2.html">4.2 分布式系统</a></li><li class="chapter-item expanded "><a href="4.3.html">4.3 并行计算</a></li></ol></li><li class="chapter-item expanded "><a href="ch5.html">第五章 序列和协程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="5.1.html">5.1 引言</a></li><li class="chapter-item expanded "><a href="5.2.html">5.2 隐式序列</a></li><li class="chapter-item expanded "><a href="5.3.html">5.3 协程</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">python SICP 教程</h1>
+
+                    <div class="right-buttons">
+                                                <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <ul>
+<li><a href="#15-%E6%8E%A7%E5%88%B6">1.5 控制</a>
+<ul>
+<li><a href="#151-%E8%AF%AD%E5%8F%A5">1.5.1 语句</a></li>
+<li><a href="#152-%E5%A4%8D%E5%90%88%E8%AF%AD%E5%8F%A5">1.5.2 复合语句</a></li>
+<li><a href="#153-%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0-ii%E5%B1%80%E9%83%A8%E8%B5%8B%E5%80%BC">1.5.3 定义函数 II：局部赋值</a></li>
+<li><a href="#154-%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5">1.5.4 条件语句</a></li>
+<li><a href="#155-%E8%BF%AD%E4%BB%A3">1.5.5 迭代</a></li>
+<li><a href="#156-%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97%E6%B5%8B%E8%AF%95">1.5.6 实践指南：测试</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="15-控制"><a class="header" href="#15-控制">1.5 控制</a></h1>
+<blockquote>
+<p>来源：<a href="http://www-inst.eecs.berkeley.edu/%7Ecs61a/sp12/book/functions.html#control">1.5   Control</a></p>
+<p>译者：<a href="https://github.com/wizardforcel">飞龙</a></p>
+<p>协议：<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
+</blockquote>
+<p>我们现在可以定义的函数能力有限，因为我们还不知道一种方法来进行测试，并且根据测试结果来执行不同的操作。控制语句可以让我们完成这件事。它们不像严格的求值子表达式那样从左向右编写，并且可以从它们控制解释器下一步做什么当中得到它们的名称。这可能基于表达式的值。</p>
+<h2 id="151-语句"><a class="header" href="#151-语句">1.5.1 语句</a></h2>
+<p>目前为止，我们已经初步思考了如何求出表达式。然而，我们已经看到了三种语句：赋值、<code>def</code>和<code>return</code>语句。这些 Python 代码并不是表达式，虽然它们中的一部分是表达式。</p>
+<p>要强调的是，语句的值是不相干的（或不存在的），我们使用执行而不是求值来描述语句。
+每个语句都描述了对解释器状态的一些改变，执行语句会应用这些改变。像我们之前看到的<code>return</code>和赋值语句那样，语句的执行涉及到求解所包含的子表达式。</p>
+<p>表达式也可以作为语句执行，其中它们会被求值，但是它们的值会舍弃。执行纯函数没有什么副作用，但是执行非纯函数会产生效果作为函数调用的结果。</p>
+<p>考虑下面这个例子：</p>
+<pre><code class="language-py">&gt;&gt;&gt; def square(x):
+        mul(x, x) # Watch out! This call doesn't return a value.
+</code></pre>
+<p>这是有效的 Python 代码，但是并不是想表达的意思。函数体由表达式组成。表达式本身是个有效的语句，但是语句的效果是，<code>mul</code>函数被调用了，然后结果被舍弃了。如果你希望对表达式的结果做一些事情，你需要这样做：使用赋值语句来储存它，或者使用<code>return</code>语句将它返回：</p>
+<pre><code class="language-py">&gt;&gt;&gt; def square(x):
+        return mul(x, x)
+</code></pre>
+<p>有时编写一个函数体是表达式的函数是有意义的，例如调用类似<code>print</code>的非纯函数：</p>
+<pre><code class="language-py">&gt;&gt;&gt; def print_square(x):
+        print(square(x))
+</code></pre>
+<p>在最高层级上，Python 解释器的工作就是执行由语句组成的程序。但是，许多有意思的计算工作来源于求解表达式。语句管理程序中不同表达式之间的关系，以及它们的结果会怎么样。</p>
+<h2 id="152-复合语句"><a class="header" href="#152-复合语句">1.5.2 复合语句</a></h2>
+<p>通常，Python 的代码是语句的序列。一条简单的语句是一行不以分号结束的代码。复合语句之所以这么命名，因为它是其它（简单或复合）语句的复合。复合语句一般占据多行，并且以一行以冒号结尾的头部开始，它标识了语句的类型。同时，一个头部和一组缩进的代码叫做子句（或从句）。复合语句由一个或多个子句组成。</p>
+<pre><code class="language-xml">&lt;header&gt;:
+    &lt;statement&gt;
+    &lt;statement&gt;
+    ...
+&lt;separating header&gt;:
+    &lt;statement&gt;
+    &lt;statement&gt;
+    ...
+...
+</code></pre>
+<p>我们可以这样理解我们已经见到的语句：</p>
+<ul>
+<li>表达式、返回语句和赋值语句都是简单语句。</li>
+<li><code>def</code>语句是复合语句。<code>def</code>头部之后的组定义了函数体。</li>
+</ul>
+<p>为每种头部特化的求值规则指导了组内的语句什么时候以及是否会被执行。我们说头部控制语句组。例如，在<code>def</code>语句的例子中，我们看到返回表达式并不会立即求值，而是储存起来用于以后的使用，当所定义的函数最终调用时就会求值。</p>
+<p>我们现在也能理解多行的程序了。</p>
+<ul>
+<li>执行语句序列需要执行第一条语句。如果这个语句不是重定向控制，之后执行语句序列的剩余部分，如果存在的话。</li>
+</ul>
+<p>这个定义揭示出递归定义“序列”的基本结构：一个序列可以划分为它的第一个元素和其余元素。语句序列的“剩余”部分也是一个语句序列。所以我们可以递归应用这个执行规则。这个序列作为递归数据结构的看法会在随后的章节中再次出现。</p>
+<p>这一规则的重要结果就是语句顺序执行，但是随后的语句可能永远不会执行到，因为有重定向控制。</p>
+<p><strong>实践指南：</strong> 在缩进代码组时，所有行必须以相同数量以及相同方式缩进（空格而不是Tab）。任何缩进的变动都会导致错误。</p>
+<h2 id="153-定义函数-ii局部赋值"><a class="header" href="#153-定义函数-ii局部赋值">1.5.3 定义函数 II：局部赋值</a></h2>
+<p>一开始我们说，用户定义函数的函数体只由带有一个返回表达式的一个返回语句组成。实际上，函数可以定义为操作的序列，不仅仅是一条表达式。Python 复合语句的结构自然让我们将函数体的概念扩展为多个语句。</p>
+<p>无论用户定义的函数何时被调用，定义中的子句序列在局部环境内执行。<code>return</code>语句会重定向控制：无论什么时候执行<code>return</code>语句，函数调用的流程都会中止，返回表达式的值会作为被调用函数的返回值。</p>
+<p>于是，赋值语句现在可以出现在函数体中。例如，这个函数以第一个数的百分数形式，返回两个数量的绝对值，并使用了两步运算：</p>
+<pre><code class="language-py">&gt;&gt;&gt; def percent_difference(x, y):
+        difference = abs(x-y)
+        return 100 * difference / x
+&gt;&gt;&gt; percent_difference(40, 50)
+25.0
+</code></pre>
+<p>赋值语句的效果是在当前环境的第一个帧上，将名字绑定到值上。于是，函数体内的赋值语句不会影响全局帧。函数只能操作局部作用域的现象是创建模块化程序的关键，其中纯函数只通过它们接受和返回的值与外界交互。</p>
+<p>当然，<code>percent_difference</code>函数也可以写成一个表达式，就像下面这样，但是返回表达式会更加复杂：</p>
+<pre><code class="language-py">&gt;&gt;&gt; def percent_difference(x, y):
+        return 100 * abs(x-y) / x
+</code></pre>
+<p>目前为止，局部赋值并不会增加函数定义的表现力。当它和控制语句组合时，才会这样。此外，局部赋值也可以将名称赋为间接量，在理清复杂表达式的含义时起到关键作用。</p>
+<p><strong>新的环境特性：</strong> 局部赋值。</p>
+<h2 id="154-条件语句"><a class="header" href="#154-条件语句">1.5.4 条件语句</a></h2>
+<p>Python 拥有内建的绝对值函数：</p>
+<pre><code class="language-py">&gt;&gt;&gt; abs(-2)
+2
+</code></pre>
+<p>我们希望自己能够实现这个函数，但是我们当前不能直接定义函数来执行测试并做出选择。我们希望表达出，如果<code>x</code>是正的，<code>abs(x)</code>返回<code>x</code>，如果<code>x</code>是 0，<code>abx(x)</code>返回 0，否则<code>abs(x)</code>返回<code>-x</code>。Python 中，我们可以使用条件语句来表达这种选择。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def absolute_value(x):
+        &quot;&quot;&quot;Compute abs(x).&quot;&quot;&quot;
+        if x &gt; 0:
+            return x
+        elif x == 0:
+            return 0
+        else:
+            return -x
+            
+&gt;&gt;&gt; absolute_value(-2) == abs(-2)
+True
+</code></pre>
+<p><code>absolute_value</code>的实现展示了一些重要的事情：</p>
+<p><strong>条件语句。</strong> Python 中的条件语句包含一系列的头部和语句组：一个必要的<code>if</code>子句，可选的<code>elif</code>子句序列，和最后可选的<code>else</code>子句：</p>
+<pre><code class="language-py">if &lt;expression&gt;:
+    &lt;suite&gt;
+elif &lt;expression&gt;:
+    &lt;suite&gt;
+else:
+    &lt;suite&gt;
+</code></pre>
+<p>当执行条件语句时，每个子句都按顺序处理：</p>
+<ol>
+<li>求出头部中的表达式。</li>
+<li>如果它为真，执行语句组。之后，跳过条件语句中随后的所有子句。</li>
+</ol>
+<p>如果能到达<code>else</code>子句（仅当所有<code>if</code>和<code>elif</code>表达式值为假时），它的语句组才会被执行。</p>
+<p><strong>布尔上下文。</strong> 上面过程的执行提到了“假值”和“真值”。条件块头部语句中的表达式也叫作布尔上下文：它们值的真假对控制流很重要，但在另一方面，它们的值永远不会被赋值或返回。Python 包含了多种假值，包括 0、<code>None</code>和布尔值<code>False</code>。所有其他数值都是真值。在第二章中，我们就会看到每个 Python 中的原始数据类型都是真值或假值。</p>
+<p><strong>布尔值。</strong> Python 有两种布尔值，叫做<code>True</code>和<code>False</code>。布尔值表示了逻辑表达式中的真值。内建的比较运算符，<code>&gt;</code>、<code>&lt;</code>、<code>&gt;=</code>、<code>&lt;=</code>、<code>==</code>、<code>!=</code>，返回这些值。</p>
+<pre><code class="language-python">&gt;&gt;&gt; 4 &lt; 2
+False
+&gt;&gt;&gt; 5 &gt;= 5
+True
+</code></pre>
+<p>第二个例子读作“5 大于等于 5”，对应<code>operator</code>模块中的函数<code>ge</code>。</p>
+<pre><code class="language-python">&gt;&gt;&gt; 0 == -0
+True
+</code></pre>
+<p>最后的例子读作“0 等于 -0”，对应<code>operator</code>模块的<code>eq</code>函数。要注意 Python 区分赋值（<code>=</code>）和相等测试（<code>==</code>）。许多语言中都有这个惯例。</p>
+<p><strong>布尔运算符。</strong> Python 也内建了三个基本的逻辑运算符：</p>
+<pre><code class="language-py">&gt;&gt;&gt; True and False
+False
+&gt;&gt;&gt; True or False
+True
+&gt;&gt;&gt; not False
+True
+</code></pre>
+<p>逻辑表达式拥有对应的求值过程。这些过程揭示了逻辑表达式的真值有时可以不执行全部子表达式而确定，这个特性叫做短路。</p>
+<p>为了求出表达式<code>&lt;left&gt; and &lt;right&gt;</code>：</p>
+<ol>
+<li>求出子表达式<code>&lt;left&gt;</code>。</li>
+<li>如果结果<code>v</code>是假值，那么表达式求值为<code>v</code>。</li>
+<li>否则表达式的值为子表达式<code>&lt;right&gt;</code>。</li>
+</ol>
+<p>为了求出表达式<code>&lt;left&gt; or &lt;right&gt;</code>：</p>
+<ol>
+<li>求出子表达式<code>&lt;left&gt;</code>。</li>
+<li>如果结果<code>v</code>是真值，那么表达式求值为<code>v</code>。</li>
+<li>否则表达式的值为子表达式<code>&lt;right&gt;</code>。</li>
+</ol>
+<p>为了求出表达式<code>not &lt;exp&gt;</code>：</p>
+<ol>
+<li>求出<code>&lt;exp&gt;</code>，如果值是<code>True</code>那么返回值是假值，如果为<code>False</code>则反之。</li>
+</ol>
+<p>这些值、规则和运算符向我们提供了一种组合测试结果的方式。执行测试以及返回布尔值的函数通常以<code>is</code>开头，并不带下划线（例如<code>isfinite</code>、<code>isdigit</code>、<code>isinstance</code>等等）。</p>
+<h2 id="155-迭代"><a class="header" href="#155-迭代">1.5.5 迭代</a></h2>
+<p>除了选择要执行的语句，控制语句还用于表达重复操作。如果我们编写的每一行代码都只执行一次，程序会变得非常没有生产力。只有通过语句的重复执行，我们才可以释放计算机的潜力，使我们更加强大。我们已经看到了重复的一种形式：一个函数可以多次调用，虽然它只定义一次。迭代控制结构是另一种将相同语句执行多次的机制。</p>
+<p>考虑斐波那契数列，其中每个数值都是前两个的和：</p>
+<pre><code class="language-text">0, 1, 1, 2, 3, 5, 8, 13, 21, ...
+</code></pre>
+<p>每个值都通过重复使用“前两个值的和”的规则构造。为了构造第 n 个值，我们需要跟踪我们创建了多少个值（<code>k</code>），以及第 k 个值（<code>curr</code>）和它的上一个值（<code>pred</code>），像这样：</p>
+<pre><code class="language-py">&gt;&gt;&gt; def fib(n):
+        &quot;&quot;&quot;Compute the nth Fibonacci number, for n &gt;= 2.&quot;&quot;&quot;
+        pred, curr = 0, 1   # Fibonacci numbers
+        k = 2               # Position of curr in the sequence
+        while k &lt; n:
+            pred, curr = curr, pred + curr  # Re-bind pred and curr
+            k = k + 1                       # Re-bind k
+        return curr
+&gt;&gt;&gt; fib(8)
+13
+</code></pre>
+<p>要记住逗号在赋值语句中分隔了多个名称和值。这一行：</p>
+<pre><code class="language-py">pred, curr = curr, pred + curr
+</code></pre>
+<p>具有将<code>curr</code>的值重新绑定到名称<code>pred</code>上，以及将<code>pred + curr</code>的值重新绑定到<code>curr</code>上的效果。所有<code>=</code>右边的表达式会在绑定发生之前求出来。</p>
+<p><code>while</code>子句包含一个头部表达式，之后是语句组：</p>
+<pre><code class="language-py">while &lt;expression&gt;:
+    &lt;suite&gt;
+</code></pre>
+<p>为了执行<code>while</code>子句：</p>
+<ol>
+<li>求出头部表达式。</li>
+<li>如果它为真，执行语句组，之后返回到步骤 1。</li>
+</ol>
+<p>在步骤 2 中，整个<code>while</code>子句的语句组在头部表达式再次求值之前被执行。</p>
+<p>为了防止<code>while</code>子句的语句组无限执行，它应该总是在每次通过时修改环境的状态。</p>
+<p>不终止的<code>while</code>语句叫做无限循环。按下<code>&lt;Control&gt;-C</code>可以强制让 Python 停止循环。</p>
+<h2 id="156-实践指南测试"><a class="header" href="#156-实践指南测试">1.5.6 实践指南：测试</a></h2>
+<p>函数的测试是验证函数的行为是否符合预期的操作。我们的函数现在已经足够复杂了，我们需要开始测试我们的实现。</p>
+<p>测试是系统化执行这个验证的机制。测试通常写为另一个函数，这个函数包含一个或多个被测函数的样例调用。返回值之后会和预期结果进行比对。不像大多数通用的函数，测试涉及到挑选特殊的参数值，并使用它来验证调用。测试也可作为文档：它们展示了如何调用函数，以及什么参数值是合理的。</p>
+<p>要注意我们也将“测试”这个词用于<code>if</code>或<code>while</code>语句的头部中作为一种技术术语。当我们将“测试”这个词用作表达式，或者用作一种验证机制时，它应该在语境中十分明显。</p>
+<p><strong>断言。</strong> 程序员使用<code>assert</code>语句来验证预期，例如测试函数的输出。<code>assert</code>语句在布尔上下文中只有一个表达式，后面是带引号的一行文本（单引号或双引号都可以，但是要一致）如果表达式求值为假，它就会显示。</p>
+<pre><code class="language-py">&gt;&gt;&gt; assert fib(8) == 13, 'The 8th Fibonacci number should be 13'
+</code></pre>
+<p>当被断言的表达式求值为真时，断言语句的执行没有任何效果。当它是假时，<code>asset</code>会造成执行中断。</p>
+<p>为<code>fib</code>编写的<code>test</code>函数测试了几个参数，包含<code>n</code>的极限值：</p>
+<pre><code class="language-python">&gt;&gt;&gt; def fib_test():
+        assert fib(2) == 1, 'The 2nd Fibonacci number should be 1'
+        assert fib(3) == 1, 'The 3nd Fibonacci number should be 1'
+        assert fib(50) == 7778742049, 'Error at the 50th Fibonacci number'
+</code></pre>
+<p>在文件中而不是直接在解释器中编写 Python 时，测试可以写在同一个文件，或者后缀为<code>_test.py</code>的相邻文件中。</p>
+<p><strong>Doctest。</strong> Python 提供了一个便利的方法，将简单的测试直接写到函数的文档字符串内。文档字符串的第一行应该包含单行的函数描述，后面是一个空行。参数和行为的详细描述可以跟随在后面。此外，文档字符串可以包含调用该函数的简单交互式会话：</p>
+<pre><code class="language-python">&gt;&gt;&gt; def sum_naturals(n):
+        &quot;&quot;&quot;Return the sum of the first n natural numbers
+
+        &gt;&gt;&gt; sum_naturals(10)
+        55
+        &gt;&gt;&gt; sum_naturals(100)
+        5050
+        &quot;&quot;&quot;
+        total, k = 0, 1
+        while k &lt;= n:
+          total, k = total + k, k + 1
+        return total
+</code></pre>
+<p>之后，可以使用<a href="http://docs.python.org/py3k/library/doctest.html">doctest 模块</a>来验证交互。下面的<code>globals</code>函数返回全局变量的表示，解释器需要它来求解表达式。</p>
+<pre><code class="language-py">&gt;&gt;&gt; from doctest import run_docstring_examples
+&gt;&gt;&gt; run_docstring_examples(sum_naturals, globals())
+</code></pre>
+<p>在文件中编写 Python 时，可以通过以下面的命令行选项启动 Python 来运行一个文档中的所有 doctest。</p>
+<pre><code class="language-sh">python3 -m doctest &lt;python_source_file&gt;
+</code></pre>
+<p>高效测试的关键是在实现新的函数之后（甚至是之前）立即编写（以及执行）测试。只调用一个函数的测试叫做单元测试。详尽的单元测试是良好程序设计的标志。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="1.4.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="1.6.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="1.4.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="1.6.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+                <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>

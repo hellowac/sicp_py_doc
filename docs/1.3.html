@@ -1,0 +1,388 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>1.3 定义新的函数 - python SICP 教程</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="favicon.svg">
+                        <link rel="shortcut icon" href="favicon.png">
+                <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+                <link rel="stylesheet" href="css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">SICP Python 描述 中文版</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="ch1.html">第一章 使用函数构建抽象</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="1.1.html">1.1 引言</a></li><li class="chapter-item expanded "><a href="1.2.html">1.2 编程元素</a></li><li class="chapter-item expanded "><a href="1.3.html" class="active">1.3 定义新的函数</a></li><li class="chapter-item expanded "><a href="1.4.html">1.4 实践指南：函数的艺术</a></li><li class="chapter-item expanded "><a href="1.5.html">1.5 控制</a></li><li class="chapter-item expanded "><a href="1.6.html">1.6 高阶函数</a></li></ol></li><li class="chapter-item expanded "><a href="ch2.html">第二章 使用对象构建抽象</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2.1.html">2.1 引言</a></li><li class="chapter-item expanded "><a href="2.2.html">2.2 数据抽象</a></li><li class="chapter-item expanded "><a href="2.3.html">2.3 序列</a></li><li class="chapter-item expanded "><a href="2.4.html">2.4 可变数据</a></li><li class="chapter-item expanded "><a href="2.5.html">2.5 面向对象编程</a></li><li class="chapter-item expanded "><a href="2.6.html">2.6 实现类和对象</a></li><li class="chapter-item expanded "><a href="2.7.html">2.7 泛用方法</a></li></ol></li><li class="chapter-item expanded "><a href="ch3.html">第三章 计算机程序的构造和解释</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="3.1.html">3.1 引言</a></li><li class="chapter-item expanded "><a href="3.2.html">3.2 函数和所生成的过程</a></li><li class="chapter-item expanded "><a href="3.3.html">3.3 递归数据结构</a></li><li class="chapter-item expanded "><a href="3.4.html">3.4 异常</a></li><li class="chapter-item expanded "><a href="3.5.html">3.5 组合语言的解释器</a></li><li class="chapter-item expanded "><a href="3.6.html">3.6 抽象语言的解释器</a></li></ol></li><li class="chapter-item expanded "><a href="ch4.html">第四章 分布式和并行计算</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="4.1.html">4.1 引言</a></li><li class="chapter-item expanded "><a href="4.2.html">4.2 分布式系统</a></li><li class="chapter-item expanded "><a href="4.3.html">4.3 并行计算</a></li></ol></li><li class="chapter-item expanded "><a href="ch5.html">第五章 序列和协程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="5.1.html">5.1 引言</a></li><li class="chapter-item expanded "><a href="5.2.html">5.2 隐式序列</a></li><li class="chapter-item expanded "><a href="5.3.html">5.3 协程</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">python SICP 教程</h1>
+
+                    <div class="right-buttons">
+                                                <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <ul>
+<li><a href="#13-%E5%AE%9A%E4%B9%89%E6%96%B0%E7%9A%84%E5%87%BD%E6%95%B0">1.3 定义新的函数</a>
+<ul>
+<li><a href="#131-%E7%8E%AF%E5%A2%83">1.3.1 环境</a></li>
+<li><a href="#132-%E8%B0%83%E7%94%A8%E7%94%A8%E6%88%B7%E5%AE%9A%E4%B9%89%E7%9A%84%E5%87%BD%E6%95%B0">1.3.2 调用用户定义的函数</a></li>
+<li><a href="#133-%E7%A4%BA%E4%BE%8B%E8%B0%83%E7%94%A8%E7%94%A8%E6%88%B7%E5%AE%9A%E4%B9%89%E7%9A%84%E5%87%BD%E6%95%B0">1.3.3 示例：调用用户定义的函数</a></li>
+<li><a href="#134-%E5%B1%80%E9%83%A8%E5%90%8D%E7%A7%B0">1.3.4 局部名称</a></li>
+<li><a href="#135-%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97%E9%80%89%E6%8B%A9%E5%90%8D%E7%A7%B0">1.3.5 实践指南：选择名称</a></li>
+<li><a href="#136-%E4%BD%9C%E4%B8%BA%E6%8A%BD%E8%B1%A1%E7%9A%84%E5%87%BD%E6%95%B0">1.3.6 作为抽象的函数</a></li>
+<li><a href="#137-%E8%BF%90%E7%AE%97%E7%AC%A6">1.3.7 运算符</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="13-定义新的函数"><a class="header" href="#13-定义新的函数">1.3 定义新的函数</a></h1>
+<blockquote>
+<p>来源：<a href="http://www-inst.eecs.berkeley.edu/%7Ecs61a/sp12/book/functions.html#defining-new-functions">1.3   Defining New Functions</a></p>
+<p>译者：<a href="https://github.com/wizardforcel">飞龙</a></p>
+<p>协议：<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
+</blockquote>
+<p>我们已经在 Python 中认识了一些在任何强大的编程语言中都会出现的元素：</p>
+<ol>
+<li>数值是内建数据，算数运算是函数。</li>
+<li>嵌套函数提供了组合操作的手段。</li>
+<li>名称到值的绑定提供了有限的抽象手段。</li>
+</ol>
+<p>现在我们将要了解函数定义，一个更加强大的抽象技巧，名称通过它可以绑定到复合操作上，并可以作为一个单元来引用。</p>
+<p>我们通过如何表达“平方”这个概念来开始。我们可能会说，“对一个数求平方就是将这个数乘上它自己”。在 Python 中就是：</p>
+<pre><code class="language-py">&gt;&gt;&gt; def square(x):
+        return mul(x, x)
+</code></pre>
+<p>这定义了一个新的函数，并赋予了名称<code>square</code>。这个用户定义的函数并不内建于解释器。它表示将一个数乘上自己的复合操作。定义中的<code>x</code>叫做形式参数，它为被乘的东西提供一个名称。这个定义创建了用户定义的函数，并且将它关联到名称<code>square</code>上。</p>
+<p>函数定义包含<code>def</code>语句，它标明了<code>&lt;name&gt;</code>（名称）和一列带有名字的<code>&lt;formal parameters&gt;</code>（形式参数）。之后，<code>return</code>（返回）语句叫做函数体，指定了函数的<code>&lt;return expression&gt;</code>（返回表达式），它是函数无论什么时候调用都需要求值的表达式。</p>
+<pre><code class="language-py">def &lt;name&gt;(&lt;formal parameters&gt;):
+    return &lt;return expression&gt;
+</code></pre>
+<p>第二行必须缩进！按照惯例我们应该缩进四个空格，而不是一个Tab，返回表达式并不是立即求值，它储存为新定义函数的一部分，并且只在函数最终调用时会被求出。（很快我们就会看到缩进区域可以跨越多行。）</p>
+<p>定义了<code>square</code>之后，我们使用调用表达式来调用它：</p>
+<pre><code class="language-py">&gt;&gt;&gt; square(21)
+441
+&gt;&gt;&gt; square(add(2, 5))
+49
+&gt;&gt;&gt; square(square(3))
+81
+</code></pre>
+<p>我们也可以在构建其它函数时，将<code>square</code>用作构建块。列入，我们可以轻易定义<code>sum_squares</code>函数，它接受两个数值作为参数，并返回它们的平方和：</p>
+<pre><code class="language-py">&gt;&gt;&gt; def sum_squares(x, y):
+        return add(square(x), square(y))
+&gt;&gt;&gt; sum_squares(3, 4)
+25
+</code></pre>
+<p>用户定义的函数和内建函数以同种方法使用。确实，我们不可能在<code>sum_squares</code>的定义中分辨出<code>square</code>是否构建于解释器中，从模块导入还是由用户定义。</p>
+<h2 id="131-环境"><a class="header" href="#131-环境">1.3.1 环境</a></h2>
+<p>我们的 Python 子集已经足够复杂了，但程序的含义还不是非常明显。如果形式参数和内建函数具有相同名称会如何呢？两个函数是否能共享名称而不会产生混乱呢？为了解决这些疑问，我们必须详细描述环境。</p>
+<p>表达式求值所在的环境由帧的序列组成，它们可以表述为一些盒子。每一帧都包含了一些绑定，它们将名称和对应的值关联起来。全局帧只有一个，它包含所有内建函数的名称绑定（只展示了<code>abs</code>和<code>max</code>）。我们使用地球符号来表示全局。</p>
+<p><img src="img/global_frame.png" alt="" /></p>
+<p>赋值和导入语句会向当前环境的第一个帧添加条目。到目前为止，我们的环境只包含全局帧。</p>
+<pre><code class="language-py">&gt;&gt;&gt; from math import pi
+&gt;&gt;&gt; tau = 2 * pi
+</code></pre>
+<p><img src="img/global_frame_assignment.png" alt="" /></p>
+<p><code>def</code>语句也将绑定绑定到由定义创建的函数上。定义<code>square</code>之后的环境如图所示：</p>
+<p><img src="img/global_frame_def.png" alt="" /></p>
+<p>这些环境图示展示了当前环境中的绑定，以及它们所绑定的值（并不是任何帧的一部分）。要注意函数名称是重复的，一个在帧中，另一个是函数的一部分。这一重复是有意的，许多不同的名字可能会引用相同函数，但是函数本身只有一个内在名称。但是，在环境中由名称检索值只检查名称绑定。函数的内在名称不在名称检索中起作用。在我们之前看到的例子中：</p>
+<pre><code class="language-py">&gt;&gt;&gt; f = max
+&gt;&gt;&gt; f
+&lt;built-in function max&gt;
+</code></pre>
+<p>名称<code>max</code>是函数的内在名称，以及打印<code>f</code>时我们看到的名称。此外，名称<code>max</code>和<code>f</code>在全局环境中都绑定到了相同函数上。</p>
+<p>在我们介绍 Python 的附加特性时，我们需要扩展这些图示。每次我们这样做的时候，我们都会列出图示可以表达的新特性。</p>
+<p><strong>新的环境特性：</strong> 赋值和用户定义的函数定义。</p>
+<h2 id="132-调用用户定义的函数"><a class="header" href="#132-调用用户定义的函数">1.3.2 调用用户定义的函数</a></h2>
+<p>为了求出运算符为用户定义函数的调用表达式，Python 解释器遵循与求出运算符为内建函数的表达式相似的过程。也就是说，解释器求出操作数表达式，并且对产生的实参调用具名函数。</p>
+<p>调用用户定义的函数的行为引入了第二个局部帧，它只能由函数来访问。为了对一些实参调用用户定义的函数：</p>
+<ol>
+<li>在新的局部帧中，将实参绑定到函数的形式参数上。</li>
+<li>在当前帧的开头以及全局帧的末尾求出函数体。</li>
+</ol>
+<p>函数体求值所在的环境由两个帧组成：第一个是局部帧，包含参数绑定，之后是全局帧，包含其它所有东西。每个函数示例都有自己的独立局部帧。</p>
+<p><img src="img/evaluate_square.png" alt="" /></p>
+<p>这张图包含两个不同的 Python 解释器层面：当前的环境，以及表达式树的一部分，它和要求值的代码的当前一行相关。我们描述了调用表达式的求值，用户定义的函数（蓝色）表示为两部分的圆角矩形。点线箭头表示哪个环境用于在每个部分求解表达式。</p>
+<ul>
+<li>上半部分展示了调用表达式的求值。这个调用表达式并不在任何函数里面，所以他在全局环境中求值。所以，任何里面的名称（例如<code>square</code>）都会在全局帧中检索。</li>
+<li>下半部分展示了<code>square</code>函数的函数体。它的返回表达式在上面的步骤1引入的新环境中求值，它将<code>square</code>的形式参数<code>x</code>的名称绑定到实参的值<code>-2</code>上。</li>
+</ul>
+<p>环境中帧的顺序会影响由表达式中的名称检索返回的值。我们之前说名称求解为当前环境中与这个名称关联的值。我们现在可以更精确一些：</p>
+<ul>
+<li>名称求解为当前环境中，最先发现该名称的帧中，绑定到这个名称的值。</li>
+</ul>
+<p>我们关于环境、名称和函数的概念框架建立了求值模型，虽然一些机制的细节仍旧没有指明（例如绑定如何实现），我们的模型在描述解释器如何求解调用表示上，变得更准确和正确。在第三章我们会看到这一模型如何用作一个蓝图来实现编程语言的可工作的解释器。</p>
+<p><strong>新的环境特性：</strong> 函数调用。</p>
+<h2 id="133-示例调用用户定义的函数"><a class="header" href="#133-示例调用用户定义的函数">1.3.3 示例：调用用户定义的函数</a></h2>
+<p>让我们再一次考虑两个简单的定义：</p>
+<pre><code class="language-py">&gt;&gt;&gt; from operator import add, mul
+&gt;&gt;&gt; def square(x):
+        return mul(x, x)
+&gt;&gt;&gt; def sum_squares(x, y):
+        return add(square(x), square(y))
+</code></pre>
+<p><img src="img/evaluate_sum_squares_0.png" alt="" /></p>
+<p>以及求解下列调用表达式的过程：</p>
+<pre><code class="language-py">&gt;&gt;&gt; sum_squares(5, 12)
+169
+</code></pre>
+<p>Python 首先会求出名称<code>sum_squares</code>，它在全局帧绑定了用户定义的函数。基本的数字表达式 5 和 12 求值为它们所表达的数值。</p>
+<p>之后，Python 调用了<code>sum_squares</code>，它引入了局部帧，将<code>x</code>绑定为 5，将<code>y</code>绑定为 12。</p>
+<p><img src="img/evaluate_sum_squares_1.png" alt="" /></p>
+<p>这张图中，局部帧指向它的后继，全局帧。所有局部帧必须指向某个先导，这些链接定义了当前环境中的帧序列。</p>
+<p><code>sum_square</code>的函数体包含下列调用表达式：</p>
+<pre><code class="language-text">   add     (  square(x)  ,  square(y)  )
+ ________     _________     _________
+&quot;operator&quot;   &quot;operand 0&quot;   &quot;operand 1&quot;
+</code></pre>
+<p>全部三个子表达式在当前环境中求值，它开始于标记为<code>sum_squares</code>的帧。运算符字表达式<code>add</code>是全局帧中发现的名称，绑定到了内建的加法函数上。两个操作数子表达式必须在加法函数调用之前依次求值。两个操作数都在当前环境中求值，开始于标记为<code>sum_squares</code>的帧。在下面的环境图示中，我们把这一帧叫做<code>A</code>，并且将指向这一帧的箭头同时替换为标签<code>A</code>。</p>
+<p>在使用这个局部帧的情况下，函数体表达式<code>mul(x, x)</code>求值为 25。</p>
+<p>我们的求值过程现在轮到了操作数 1，<code>y</code>的值为 12。Python 再次求出<code>square</code>的函数体。这次引入了另一个局部环境帧，将<code>x</code>绑定为 12。所以，操作数 1 求值为 144。</p>
+<p><img src="img/evaluate_sum_squares_3.png" alt="" /></p>
+<p>最后，对实参 25 和 144 调用加法会产生<code>sum_squares</code>函数体的最终值：169。</p>
+<p>这张图虽然复杂，但是用于展示我们目前为止发展出的许多基础概念。名称绑定到值上面，它延伸到许多局部帧中，局部帧在唯一的全局帧之上，全局帧包含共享名称。表达式为树形结构，以及每次子表达式包含用户定义函数的调用时，环境必须被扩展。</p>
+<p>所有这些机制的存在确保了名称在表达式中正确的地方解析为正确的值。这个例子展示了为什么我们的模型需要所引入的复杂性。所有三个局部帧都包含名称<code>x</code>的绑定。但是这个名称在不同的帧中绑定到了不同的值上。局部帧分离了这些名称。</p>
+<h2 id="134-局部名称"><a class="header" href="#134-局部名称">1.3.4 局部名称</a></h2>
+<p>函数实现的细节之一是实现者对形式参数名称的选择不应影响函数行为。所以，下面的函数应具有相同的行为：</p>
+<pre><code class="language-py">&gt;&gt;&gt; def square(x):
+        return mul(x, x)
+&gt;&gt;&gt; def square(y):
+        return mul(y, y)
+</code></pre>
+<p>这个原则 -- 也就是函数应不依赖于编写者选择的参数名称 -- 对编程语言来说具有重要的结果。最简单的结果就是函数参数名称应保留在函数体的局部范围中。</p>
+<p>如果参数不位于相应函数的局部范围中，<code>square</code>的参数<code>x</code>可能和<code>sum_squares</code>中的参数<code>x</code>产生混乱。严格来说，这并不是问题所在：不同局部帧中的<code>x</code>的绑定是不相关的。我们的计算模型具有严谨的设计来确保这种独立性。</p>
+<p>我们说局部名称的作用域被限制在定义它的用户定义函数的函数体中。当一个名称不能再被访问时，它就离开了作用域。作用域的行为并不是我们模型的新事实，它是环境的工作方式的结果。</p>
+<h2 id="135-实践指南选择名称"><a class="header" href="#135-实践指南选择名称">1.3.5 实践指南：选择名称</a></h2>
+<p>可修改的名称并不代表形式参数的名称完全不重要。反之，选择良好的函数和参数名称对于函数定义的人类可解释性是必要的。</p>
+<p>下面的准则派生于 <a href="http://www.python.org/dev/peps/pep-0008">Python 的代码风格指南</a>，可被所有（非反叛）Python 程序员作为指南。一些共享的约定会使社区成员之间的沟通变得容易。遵循这些约定有一些副作用，我会发现你的代码在内部变得一致。</p>
+<ol>
+<li>函数名称应该小写，以下划线分隔。提倡描述性的名称。</li>
+<li>函数名称通常反映解释器向参数应用的操作（例如<code>print</code>、<code>add</code>、<code>square</code>），或者结果（例如<code>max</code>、<code>abs</code>、<code>sum</code>）。</li>
+<li>参数名称应小写，以下划线分隔。提倡单个词的名称。</li>
+<li>参数名称应该反映参数在函数中的作用，并不仅仅是满足的值的类型。</li>
+<li>当作用非常明确时，单个字母的参数名称可以接受，但是永远不要使用<code>l</code>（小写的<code>L</code>）和<code>O</code>（大写的<code>o</code>），或者<code>I</code>（大写的<code>i</code>）来避免和数字混淆。</li>
+</ol>
+<p>周期性对你编写的程序复查这些准则，不用多久你的名称会变得十分 Python 化。</p>
+<h2 id="136-作为抽象的函数"><a class="header" href="#136-作为抽象的函数">1.3.6 作为抽象的函数</a></h2>
+<p>虽然<code>sum_squares</code>十分简单，但是它演示了用户定义函数的最强大的特性。<code>sum_squares</code>函数使用<code>square</code>函数定义，但是仅仅依赖于<code>square</code>定义在输入参数和输出值之间的关系。</p>
+<p>我们可以编写<code>sum_squares</code>，而不用考虑如何计算一个数值的平方。平方计算的细节被隐藏了，并可以在之后考虑。确实，在<code>sum_squares</code>看来，<code>square</code>并不是一个特定的函数体，而是某个函数的抽象，也就是所谓的函数式抽象。在这个层级的抽象中，任何能计算平方的函数都是等价的。</p>
+<p>所以，仅仅考虑返回值的情况下，下面两个计算平方的函数是难以区分的。每个都接受数值参数并且产生那个数的平方作为返回值。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def square(x):
+        return mul(x, x)
+&gt;&gt;&gt; def square(x):
+        return mul(x, x-1) + x
+</code></pre>
+<p>换句话说，函数定义应该能够隐藏细节。函数的用户可能不能自己编写函数，但是可以从其它程序员那里获得它作为“黑盒”。用户不应该需要知道如何实现来调用。Python 库拥有这个特性。许多开发者使用在这里定义的函数，但是很少有人看过它们的实现。实际上，许多 Python 库的实现并不完全用 Python 编写，而是 C 语言。</p>
+<h2 id="137-运算符"><a class="header" href="#137-运算符">1.3.7 运算符</a></h2>
+<p>算术运算符（例如<code>+</code>和<code>-</code>）在我们的第一个例子中提供了组合手段。但是我们还需要为包含这些运算符的表达式定义求值过程。</p>
+<p>每个带有中缀运算符的 Python 表达式都有自己的求值过程，但是你通常可以认为他们是调用表达式的快捷方式。当你看到</p>
+<pre><code class="language-py">&gt;&gt;&gt; 2 + 3
+5
+</code></pre>
+<p>的时候，可以简单认为它是</p>
+<pre><code class="language-py">&gt;&gt;&gt; add(2, 3)
+5
+</code></pre>
+<p>的快捷方式。</p>
+<p>中缀记号可以嵌套，就像调用表达式那样。Python 运算符优先级中采用了常规的数学规则，它指导了如何解释带有多种运算符的复合表达式。</p>
+<pre><code class="language-py">&gt;&gt;&gt; 2 + 3 * 4 + 5
+19
+</code></pre>
+<p>和下面的表达式的求值结果相同</p>
+<pre><code class="language-py">&gt;&gt;&gt; add(add(2, mul(3, 4)) , 5)
+19
+</code></pre>
+<p>调用表达式的嵌套比运算符版本更加明显。Python 也允许括号括起来的子表达式，来覆盖通常的优先级规则，或者使表达式的嵌套结构更加明显：</p>
+<pre><code class="language-py">&gt;&gt;&gt; (2 + 3) * (4 + 5)
+45
+</code></pre>
+<p>和下面的表达式的求值结果相同</p>
+<pre><code class="language-py">&gt;&gt;&gt; mul(add(2, 3), add(4, 5))
+45
+</code></pre>
+<p>你应该在你的程序中自由使用这些运算符和括号。对于简单的算术运算，Python 在惯例上倾向于运算符而不是调用表达式。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="1.2.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="1.4.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="1.2.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="1.4.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+                <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>

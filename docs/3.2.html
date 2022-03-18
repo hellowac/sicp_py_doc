@@ -1,0 +1,453 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>3.2 函数和所生成的过程 - python SICP 教程</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="favicon.svg">
+                        <link rel="shortcut icon" href="favicon.png">
+                <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+                <link rel="stylesheet" href="css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">SICP Python 描述 中文版</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="ch1.html">第一章 使用函数构建抽象</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="1.1.html">1.1 引言</a></li><li class="chapter-item expanded "><a href="1.2.html">1.2 编程元素</a></li><li class="chapter-item expanded "><a href="1.3.html">1.3 定义新的函数</a></li><li class="chapter-item expanded "><a href="1.4.html">1.4 实践指南：函数的艺术</a></li><li class="chapter-item expanded "><a href="1.5.html">1.5 控制</a></li><li class="chapter-item expanded "><a href="1.6.html">1.6 高阶函数</a></li></ol></li><li class="chapter-item expanded "><a href="ch2.html">第二章 使用对象构建抽象</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2.1.html">2.1 引言</a></li><li class="chapter-item expanded "><a href="2.2.html">2.2 数据抽象</a></li><li class="chapter-item expanded "><a href="2.3.html">2.3 序列</a></li><li class="chapter-item expanded "><a href="2.4.html">2.4 可变数据</a></li><li class="chapter-item expanded "><a href="2.5.html">2.5 面向对象编程</a></li><li class="chapter-item expanded "><a href="2.6.html">2.6 实现类和对象</a></li><li class="chapter-item expanded "><a href="2.7.html">2.7 泛用方法</a></li></ol></li><li class="chapter-item expanded "><a href="ch3.html">第三章 计算机程序的构造和解释</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="3.1.html">3.1 引言</a></li><li class="chapter-item expanded "><a href="3.2.html" class="active">3.2 函数和所生成的过程</a></li><li class="chapter-item expanded "><a href="3.3.html">3.3 递归数据结构</a></li><li class="chapter-item expanded "><a href="3.4.html">3.4 异常</a></li><li class="chapter-item expanded "><a href="3.5.html">3.5 组合语言的解释器</a></li><li class="chapter-item expanded "><a href="3.6.html">3.6 抽象语言的解释器</a></li></ol></li><li class="chapter-item expanded "><a href="ch4.html">第四章 分布式和并行计算</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="4.1.html">4.1 引言</a></li><li class="chapter-item expanded "><a href="4.2.html">4.2 分布式系统</a></li><li class="chapter-item expanded "><a href="4.3.html">4.3 并行计算</a></li></ol></li><li class="chapter-item expanded "><a href="ch5.html">第五章 序列和协程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="5.1.html">5.1 引言</a></li><li class="chapter-item expanded "><a href="5.2.html">5.2 隐式序列</a></li><li class="chapter-item expanded "><a href="5.3.html">5.3 协程</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">python SICP 教程</h1>
+
+                    <div class="right-buttons">
+                                                <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <ul>
+<li><a href="#32-%E5%87%BD%E6%95%B0%E5%92%8C%E6%89%80%E7%94%9F%E6%88%90%E7%9A%84%E8%BF%87%E7%A8%8B">3.2 函数和所生成的过程</a>
+<ul>
+<li><a href="#321-%E9%80%92%E5%BD%92%E5%87%BD%E6%95%B0">3.2.1 递归函数</a></li>
+<li><a href="#322-%E5%89%96%E6%9E%90%E9%80%92%E5%BD%92%E5%87%BD%E6%95%B0">3.2.2 剖析递归函数</a></li>
+<li><a href="#323-%E6%A0%91%E5%BD%A2%E9%80%92%E5%BD%92">3.2.3 树形递归</a></li>
+<li><a href="#324-%E7%A4%BA%E4%BE%8B%E6%89%BE%E9%9B%B6">3.2.4 示例：找零</a></li>
+<li><a href="#325-%E5%A2%9E%E9%95%BF%E5%BA%A6">3.2.5 增长度</a></li>
+<li><a href="#326-%E7%A4%BA%E4%BE%8B%E6%B1%82%E5%B9%82">3.2.6 示例：求幂</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="32-函数和所生成的过程"><a class="header" href="#32-函数和所生成的过程">3.2 函数和所生成的过程</a></h1>
+<blockquote>
+<p>来源：<a href="http://www-inst.eecs.berkeley.edu/%7Ecs61a/sp12/book/interpretation.html#functions-and-the-processes-they-generate">3.2   Functions and the Processes They Generate</a></p>
+<p>译者：<a href="https://github.com/wizardforcel">飞龙</a></p>
+<p>协议：<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
+</blockquote>
+<p>函数是计算过程的局部演化模式。它规定了过程的每个阶段如何构建在之前的阶段之上。我们希望能够创建有关过程整体行为的语句，而过程的局部演化由一个或多个函数指定。这种分析通常非常困难，但是我们至少可以试图描述一些典型的过程演化模式。</p>
+<p>在这一章中，我们会检测一些用于简单函数所生成过程的通用“模型”。我们也会研究这些过程消耗重要的计算资源，例如时间和空间的比例。</p>
+<h2 id="321-递归函数"><a class="header" href="#321-递归函数">3.2.1 递归函数</a></h2>
+<p>如果函数的函数体直接或者间接自己调用自己，那么这个函数是递归的。也就是说，递归函数的执行过程可能需要再次调用这个函数。Python 中的递归函数不需要任何特殊的语法，但是它们的确需要一些注意来正确定义。</p>
+<p>作为递归函数的介绍，我们以将英文单词转换为它的 Pig Latin 等价形式开始。Pig Latin 是一种隐语：对英文单词使用一种简单、确定的转换来掩盖单词的含义。Thomas Jefferson 据推测是<a href="http://goo.gl/Cwysz">先行者</a>。英文单词的 Pig Latin 等价形式将辅音前缀（可能为空）从开头移动到末尾，并且添加<code>-ay</code>元音。所以，<code>pun</code>会变成<code>unpay</code>，<code>stout</code>会变成<code>outstay</code>，<code>all</code>会变成<code>allay</code>。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def pig_latin(w):
+        &quot;&quot;&quot;Return the Pig Latin equivalent of English word w.&quot;&quot;&quot;
+        if starts_with_a_vowel(w):
+            return w + 'ay'
+        return pig_latin(w[1:] + w[0])
+&gt;&gt;&gt; def starts_with_a_vowel(w):
+        &quot;&quot;&quot;Return whether w begins with a vowel.&quot;&quot;&quot;
+        return w[0].lower() in 'aeiou'
+</code></pre>
+<p>这个定义背后的想法是，一个以辅音开头的字符串的 Pig Latin 变体和另一个字符串的 Pig Latin 变体相同：它通过将第一个字母移到末尾来创建。于是，<code>sending</code>的 Pig Latin 变体就和<code>endings</code>的变体（<code>endingsay</code>）相同。<code>smother</code>的 Pig Latin 变体和<code>mothers</code>的变体（<code>othersmay</code>）相同。而且，将辅音从开头移动到末尾会产生带有更少辅音前缀的更简单的问题。在<code>sending</code>的例子中，将<code>s</code>移动到末尾会产生以元音开头的单词，我们的任务就完成了。</p>
+<p>即使<code>pig_latin</code>函数在它的函数体中调用，<code>pig_latin</code>的定义是完整且正确的。</p>
+<pre><code class="language-py">&gt;&gt;&gt; pig_latin('pun')
+'unpay'
+</code></pre>
+<p>能够基于函数自身来定义函数的想法可能十分令人混乱：“循环”定义如何有意义，这看起来不是很清楚，更不用说让计算机来执行定义好的过程。但是，我们能够准确理解递归函数如何使用我们的计算环境模型来成功调用。环境的图示和描述<code>pig_latin('pun')</code>求值的表达式树展示在下面：</p>
+<p><img src="img/pig_latin.png" alt="" /></p>
+<p>Python 求值过程的步骤产生如下结果：</p>
+<ol>
+<li><code>pig_latin</code>的<code>def</code>语句 被执行，其中：
+<ol>
+<li>使用函数体创建新的<code>pig_latin</code>函数对象，并且</li>
+<li>将名称<code>pig_latin</code>在当前（全局）帧中绑定到这个函数上。</li>
+</ol>
+</li>
+<li><code>starts_with_a_vowel</code>的<code>def</code>语句类似地执行。</li>
+<li>求出<code>pig_latin('pun')</code>的调用表达式，通过
+<ol>
+<li>求出运算符和操作数子表达式，通过
+<ol>
+<li>查找绑定到<code>pig_latin</code>函数的<code>pig_latin</code>名称</li>
+<li>对字符串对象<code>'pun'</code>求出操作数字符串字面值</li>
+</ol>
+</li>
+<li>在参数<code>'pun'</code>上调用<code>pig_latin</code>函数，通过
+<ol>
+<li>添加扩展自全局帧的局部帧</li>
+<li>将形参<code>w</code>绑定到当前帧的实参<code>'pun'</code>上。</li>
+<li>在以当前帧起始的环境中执行<code>pig_latin</code>的函数体
+<ol>
+<li>最开始的条件语句没有效果，因为头部表达式求值为<code>False</code></li>
+<li>求出最后的返回表达式<code>pig_latin(w[1:] + w[0])</code>，通过
+<ol>
+<li>查找绑定到<code>pig_latin</code>函数的<code>pig_latin</code>名称</li>
+<li>对字符串对象<code>'pun'</code>求出操作数表达式</li>
+<li>在参数<code>'unp'</code>上调用<code>pig_latin</code>，它会从<code>pig_latin</code>函数体中的条件语句组返回预期结果。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>就像这个例子所展示的那样，虽然递归函数具有循环特征，他仍旧正确调用。<code>pig_latin</code>函数调用了两次，但是每次都带有不同的参数。虽然第二个调用来自<code>pig_latin</code>自己的函数体，但由名称查找函数会成功，因为名称<code>pig_latin</code>在它的函数体执行前的环境中绑定。</p>
+<p>这个例子也展示了 Python 的递归函数的求值过程如何与递归函数交互，来产生带有许多嵌套步骤的复杂计算过程，即使函数定义本身可能包含非常少的代码行数。</p>
+<h2 id="322-剖析递归函数"><a class="header" href="#322-剖析递归函数">3.2.2 剖析递归函数</a></h2>
+<p>许多递归函数的函数体中都存在通用模式。函数体以基本条件开始，它是一个条件语句，为需要处理的最简单的输入定义函数行为。在<code>pig_latin</code>的例子中，基本条件对任何以元音开头的单词成立。这个时候，只需要返回末尾附加<code>ay</code>的参数。一些递归函数会有多重基本条件。</p>
+<p>基本条件之后是一个或多个递归调用。递归调用有特定的特征：它们必须简化原始问题。在<code>pig_latin</code>的例子中，<code>w</code>中最开始辅音越多，就需要越多的处理工作。在递归调用<code>pig_latin(w[1:] + w[0])</code>中，我们在一个具有更少初始辅音的单词上调用<code>pig_latin</code> -- 这就是更简化的问题。每个成功的<code>pig_latin</code>调用都会更加简化，直到满足了基本条件：一个没有初始辅音的单词。</p>
+<p>递归调用通过逐步简化问题来表达计算。与我们在过去使用过的迭代方式相比，它们通常以不同方式来解决问题。考虑用于计算<code>n</code>的阶乘的函数<code>fact</code>，其中<code>fact(4)</code>计算了<code>4! = 4·3·2·1 = 24</code>。</p>
+<p>使用<code>while</code>语句的自然实现会通过将每个截至<code>n</code>的正数相乘来求出结果。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def fact_iter(n):
+        total, k = 1, 1
+        while k &lt;= n:
+            total, k = total * k, k + 1
+        return total
+&gt;&gt;&gt; fact_iter(4)
+24
+</code></pre>
+<p>另一方面，阶乘的递归实现可以以<code>fact(n-1)</code>（一个更简单的问题）来表示<code>fact(n)</code>。递归的基本条件是问题的最简形式：<code>fact(1)</code>是<code>1</code>。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def fact(n):
+        if n == 1:
+            return 1
+        return n * fact(n-1)
+&gt;&gt;&gt; fact(4)
+24
+</code></pre>
+<p>函数的正确性可以轻易通过阶乘函数的标准数学定义来验证。</p>
+<pre><code class="language-python">(n − 1)! = (n − 1)·(n − 2)· ... · 1
+n！ = n·(n − 1)·(n − 2)· ... · 1
+n! = n·(n − 1)!  
+</code></pre>
+<p>这两个阶乘函数在概念上不同。迭代的函数通过将每个式子，从基本条件<code>1</code>到最终的总数逐步相乘来构造结果。另一方面，递归函数直接从最终的式子<code>n</code>和简化的问题<code>fact(n-1)</code>构造结果。</p>
+<p>将<code>fact</code>函数应用于更简单的问题实例，来展开递归的同时，结果最终由基本条件构建。下面的图示展示了递归如何向<code>fact</code>传入<code>1</code>而终止，以及每个调用的结果如何依赖于下一个调用，直到满足了基本条件。</p>
+<p><img src="img/fact.png" alt="" /></p>
+<p>虽然我们可以使用我们的计算模型展开递归，通常把递归调用看做函数抽象更清晰一些。也就是说，我们不应该关心<code>fact(n-1)</code>如何在<code>fact</code>的函数体中实现；我们只需要相信它计算了<code>n-1</code>的阶乘。将递归调用看做函数抽象叫做递归的“信仰飞跃”（leap of faith）。我们以函数自身来定义函数，但是仅仅相信更简单的情况在验证函数正确性时会正常工作。这个例子中我们相信，<code>fact(n-1)</code>会正确计算<code>(n-1)!</code>；我们只需要检查，如果满足假设<code>n!</code>是否正确计算。这样，递归函数正确性的验证就变成了一种归纳证明。</p>
+<p>函数<code>fact_iter</code>和<code>fact</code>也不一样，因为前者必须引入两个额外的名称，<code>total</code>和<code>k</code>，它们在递归实现中并不需要。通常，迭代函数必须维护一些局部状态，它们会在计算过程中改变。在任何迭代的时间点上，状态刻画了已完成的结果，以及未完成的工作总量。例如，当<code>k</code>为<code>3</code>且<code>total</code>为<code>2</code>时，就还剩下两个式子没有处理，<code>3</code>和<code>4</code>。另一方面，<code>fact</code>由单一参数<code>n</code>来刻画。计算的状态完全包含在表达式树的结果中，它的返回值起到<code>total</code>的作用，并且在不同的帧中将<code>n</code>绑定到不同的值上，而不是显式跟踪<code>k</code>。</p>
+<p>递归函数可以更加依赖于解释器本身，通过将计算状态储存为表达式树和环境的一部分，而不是显式使用局部帧中的名称。出于这个原因，递归函数通常易于定义，因为我们不需要试着弄清必须在迭代中维护的局部状态。另一方面，学会弄清由递归函数实现的计算过程，需要一些练习。</p>
+<h2 id="323-树形递归"><a class="header" href="#323-树形递归">3.2.3 树形递归</a></h2>
+<p>另一个递归的普遍模式叫做树形递归。例如，考虑斐波那契序列的计算，其中每个数值都是前两个的和。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def fib(n):
+        if n == 1:
+            return 0
+        if n == 2:
+            return 1
+        return fib(n-2) + fib(n-1)
+&gt;&gt;&gt; fib(6)
+5
+</code></pre>
+<p>这个递归定义和我们之前的尝试有很大关系：它准确反映了斐波那契数的相似定义。考虑求出<code>fib(6)</code>所产生的计算模式，它展示在下面。为了计算<code>fib(6)</code>，我们需要计算<code>fib(5)</code>和<code>fib(4)</code>。为了计算<code>fib(5)</code>，我们需要计算<code>fib(4)</code>和<code>fib(3)</code>。通常，这个演化过程看起来像一棵树（下面的图并不是完整的表达式树，而是简化的过程描述；一个完整的表达式树也拥有同样的结构）。在遍历这棵树的过程中，每个蓝点都表示斐波那契数的已完成计算。</p>
+<p><img src="img/fib.png" alt="" /></p>
+<p>调用自身多次的函数叫做树形递归。以树形递归为原型编写的函数十分有用，但是用于计算斐波那契数则非常糟糕，因为它做了很多重复的计算。要注意整个<code>fib(4)</code>的计算是重复的，它几乎是一半的工作量。实际上，不难得出函数用于计算<code>fib(1)</code>和<code>fib(2)</code>（通常是树中的叶子数量）的时间是<code>fib(n+1)</code>。为了弄清楚这有多糟糕，我们可以证明<code>fib(n)</code>的值随着<code>n</code>以指数方式增长。所以，这个过程的步骤数量随输入以指数方式增长。</p>
+<p>我们已经见过斐波那契数的迭代实现，出于便利在这里贴出来：</p>
+<pre><code class="language-py">&gt;&gt;&gt; def fib_iter(n):
+        prev, curr = 1, 0  # curr is the first Fibonacci number.
+        for _ in range(n-1):
+             prev, curr = curr, prev + curr
+        return curr
+</code></pre>
+<p>这里我们必须维护的状态由当前值和上一个斐波那契数组成。<code>for</code>语句也显式跟踪了迭代数量。这个定义并没有像递归方式那样清晰反映斐波那契数的数学定义。但是，迭代实现中所需的计算总数只是线性，而不是指数于<code>n</code>的。甚至对于<code>n</code>的较小值，这个差异都非常大。</p>
+<p>然而我们不应该从这个差异总结出，树形递归的过程是没有用的。当我们考虑层次数据结构，而不是数值上的操作时，我们发现树形递归是自然而强大的工具。而且，树形过程可以变得更高效。</p>
+<p><strong>记忆。</strong> 用于提升重复计算的递归函数效率的机制叫做记忆。记忆函数会为任何之前接受的参数储存返回值。<code>fib(4)</code>的第二次调用不会执行与第一次同样的复杂过程，而是直接返回第一次调用的已储存结果。</p>
+<p>记忆函数可以自然表达为高阶函数，也可以用作装饰器。下面的定义为之前的已计算结果创建缓存，由被计算的参数索引。在这个实现中，这个字典的使用需要记忆函数的参数是不可变的。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def memo(f):
+        &quot;&quot;&quot;Return a memoized version of single-argument function f.&quot;&quot;&quot;
+        cache = {}
+        def memoized(n):
+            if n not in cache:
+                cache[n] = f(n)
+            return cache[n]
+        return memoized
+&gt;&gt;&gt; fib = memo(fib)
+&gt;&gt;&gt; fib(40)
+63245986
+</code></pre>
+<p>由记忆函数节省的所需的计算时间总数在这个例子中是巨大的。被记忆的递归函数<code>fib</code>和迭代函数<code>fib_iter</code>都只需要线性于输入<code>n</code>的时间总数。为了计算<code>fib(40)</code>，<code>fib</code>的函数体只执行 40 次，而不是无记忆递归中的 102,334,155 次。</p>
+<p><strong>空间。</strong> 为了理解函数所需的空间，我们必须在我们的计算模型中规定内存如何使用，保留和回收。在求解表达式过程中，我们必须保留所有活动环境和所有这些环境引用的值和帧。如果环境为表达式树当前分支中的一些表达式提供求值上下文，那么它就是活动环境。</p>
+<p>例如，当求值<code>fib</code>时，解释器按序计算之前的每个值，遍历树形结构。为了这样做，它只需要在计算的任何时间点，跟踪树中在当前节点之前的那些节点。用于求出剩余节点的内存可以被回收，因为它不会影响未来的计算。通常，树形递归所需空间与树的深度成正比。</p>
+<p>下面的图示描述了由求解<code>fib(3)</code>生成的表达式树。在求解<code>fib</code>最初调用的返回表达式的过程中，<code>fib(n-2)</code>被求值，产生值<code>0</code>。一旦这个值计算出来，对应的环境帧（标为灰色）就不再需要了：它并不是活动环境的一部分。所以，一个设计良好的解释器会回收用于储存这个帧的内存。另一方面，如果解释器当前正在求解<code>fib(n-1)</code>，那么由这次<code>fib</code>调用（其中<code>n</code>为<code>2</code>）创建的环境是活动的。与之对应，最开始在<code>3</code>上调用<code>fib</code>所创建的环境也是活动的，因为这个值还没有成功计算出来。</p>
+<p><img src="img/fib_env.png" alt="" /></p>
+<p>在<code>memo</code>的例子中，只要一些名称绑定到了活动环境中的某个函数上，关联到所返回函数（它包含<code>cache</code>）的环境必须保留。<code>cache</code>字典中的条目数量随传递给<code>fib</code>的唯一参数数量线性增长，它的规模线性于输入。另一方面，迭代实现只需要两个数值来在计算过程中跟踪：<code>prev</code>和<code>curr</code>，所以是常数大小。</p>
+<p>我们使用记忆函数的例子展示了编程中的通用模式，即通常可以通过增加所用空间来减少计算时间，反之亦然。</p>
+<h2 id="324-示例找零"><a class="header" href="#324-示例找零">3.2.4 示例：找零</a></h2>
+<p>考虑下面这个问题：如果给你半美元、四分之一美元、十美分、五美分和一美分，一美元有多少种找零的方式？更通常来说，我们能不能编写一个函数，使用一系列货币的面额，计算有多少种方式为给定的金额总数找零？</p>
+<p>这个问题可以用递归函数简单解决。假设我们认为可用的硬币类型以某种顺序排列，假设从大到小排列。</p>
+<p>使用<code>n</code>种硬币找零的方式为：</p>
+<ol>
+<li>使用所有除了第一种之外的硬币为<code>a</code>找零的方式，以及</li>
+<li>使用<code>n</code>种硬币为更小的金额<code>a - d</code>找零的方式，其中<code>d</code>是第一种硬币的面额。</li>
+</ol>
+<p>为了弄清楚为什么这是正确的，可以看出，找零方式可以分为两组，不使用第一种硬币的方式，和使用它们的方式。所以，找零方式的总数等于不使用第一种硬币为该金额找零的方式数量，加上使用第一种硬币至少一次的方式数量。而后者的数量等于在使用第一种硬币之后，为剩余的金额找零的方式数量。</p>
+<p>因此，我们可以递归将给定金额的找零问题，归约为使用更少种类的硬币为更小的金额找零的问题。仔细考虑这个归约原则，并且说服自己，如果我们规定了下列基本条件，我们就可以使用它来描述算法：</p>
+<ol>
+<li>如果<code>a</code>正好是零，那么有一种找零方式。</li>
+<li>如果<code>a</code>小于零，那么有零种找零方式。</li>
+<li>如果<code>n</code>小于零，那么有零种找零方式。</li>
+</ol>
+<p>我们可以轻易将这个描述翻译成递归函数：</p>
+<pre><code class="language-py">&gt;&gt;&gt; def count_change(a, kinds=(50, 25, 10, 5, 1)):
+        &quot;&quot;&quot;Return the number of ways to change amount a using coin kinds.&quot;&quot;&quot;
+        if a == 0:
+            return 1
+        if a &lt; 0 or len(kinds) == 0:
+            return 0
+        d = kinds[0]
+        return count_change(a, kinds[1:]) + count_change(a - d, kinds)
+&gt;&gt;&gt; count_change(100)
+292
+</code></pre>
+<p><code>count_change</code>函数生成树形递归过程，和<code>fib</code>的首个实现一样，它是重复的。它会花费很长时间来计算出<code>292</code>，除非我们记忆这个函数。另一方面，设计迭代算法来计算出结果的方式并不是那么明显，我们将它留做一个挑战。</p>
+<h2 id="325-增长度"><a class="header" href="#325-增长度">3.2.5 增长度</a></h2>
+<p>前面的例子表明，不同过程在花费的时间和空间计算资源上有显著差异。我们用于描述这个差异的便捷方式，就是使用增长度的概念，来获得当输入变得更大时，过程所需资源的大致度量。</p>
+<p>令<code>n</code>为度量问题规模的参数，<code>R(n)</code>为处理规模为<code>n</code>的问题的过程所需的资源总数。在我们前面的例子中，我们将<code>n</code>看做给定函数所要计算出的数值。但是还有其他可能。例如，如果我们的目标是计算某个数值的平方根近似值，我们会将<code>n</code>看做所需的有效位数的数量。通常，有一些问题相关的特性可用于分析给定的过程。与之相似，<code>R(n)</code>可用于度量所用的内存总数，所执行的基本的机器操作数量，以及其它。在一次只执行固定数量操作的计算中，用于求解表达式的所需时间，与求值过程中执行的基本机器操作数量成正比。</p>
+<p>我们说，<code>R(n)</code>具有<code>Θ(f(n))</code>的增长度，写作<code>R(n)=Θ(f(n))</code>（读作“theta <code>f(n)</code>”），如果存在独立于<code>n</code>的常数<code>k1</code>和<code>k2</code>，那么对于任何足够大的<code>n</code>值：</p>
+<pre><code class="language-python">k1·f(n) &lt;= R(n) &lt;= k2·f(n)
+</code></pre>
+<p>也就是说，对于较大的<code>n</code>，<code>R(n)</code>的值夹在两个具有<code>f(n)</code>规模的值之间：</p>
+<ul>
+<li>下界<code>k1·f(n)</code>，以及</li>
+<li>上界<code>k2·f(n)</code>。</li>
+</ul>
+<p>例如，计算<code>n!</code>所需的步骤数量与<code>n</code>成正比，所以这个过程的所需步骤以<code>Θ(n)</code>增长。我们也看到了，递归实现<code>fact</code>的所需空间以<code>Θ(n)</code>增长。与之相反，迭代实现<code>fact_iter</code>花费相似的步骤数量，但是所需的空间保持不变。这里，我们说这个空间以<code>Θ(1)</code>增长。</p>
+<p>我们的树形递归的斐波那契数计算函数<code>fib</code>的步骤数量，随输入<code>n</code>指数增长。尤其是，我们可以发现，第 n 个斐波那契数是距离<code>φ^(n-2)/√5</code>的最近整数，其中<code>φ</code>是黄金比例：</p>
+<pre><code class="language-python">φ = (1 + √5)/2 ≈ 1.6180
+</code></pre>
+<p>我们也表示，步骤数量随返回值增长而增长，所以树形递归过程需要<code>Θ(φ^n)</code>的步骤，它的一个随<code>n</code>指数增长的函数。</p>
+<p>增长度只提供了过程行为的大致描述。例如，需要<code>n^2</code>个步骤的过程和需要<code>1000·n^2</code>个步骤的过程，以及需要<code>3·n^2+10·n+17</code>个步骤的过程都拥有<code>Θ(n^2)</code>的增长度。在特定的情况下，增长度的分析过于粗略，不能在函数的两个可能实现中做出判断。</p>
+<p>但是，增长度提供了实用的方法，来表示在改变问题规模的时候，我们应如何预期过程行为的改变。对于<code>Θ(n)</code>（线性）的过程，使规模加倍只会使所需的资源总数加倍。对于指数的过程，每一点问题规模的增长都会使所用资源以固定因数翻倍。接下来的例子展示了一个增长度为对数的算法，所以使问题规模加倍，只会使所需资源以固定总数增加。</p>
+<h2 id="326-示例求幂"><a class="header" href="#326-示例求幂">3.2.6 示例：求幂</a></h2>
+<p>考虑对给定数值求幂的问题。我们希望有一个函数，它接受底数<code>b</code>和正整数指数<code>n</code>作为参数，并计算出<code>b^n</code>。一种方式就是通过递归定义：</p>
+<pre><code class="language-python">b^n = b·b^(n-1)
+b^0 = 1
+</code></pre>
+<p>这可以翻译成递归函数：</p>
+<pre><code class="language-py">&gt;&gt;&gt; def exp(b, n):
+        if n == 0:
+            return 1
+        return b * exp(b, n-1)
+</code></pre>
+<p>这是个线性的递归过程，需要<code>Θ(n)</code>的步骤和空间。就像阶乘那样，我们可以编写等价的线性迭代形式，它需要相似的步骤数量，但只需要固定的空间。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def exp_iter(b, n):
+        result = 1
+        for _ in range(n):
+            result = result * b
+        return result
+</code></pre>
+<p>我们可以以更少的步骤求幂，通过逐次平方。例如，我们这样计算<code>b^8</code>：</p>
+<pre><code class="language-python">b·(b·(b·(b·(b·(b·(b·b))))))
+</code></pre>
+<p>我们可以使用三次乘法来计算它：</p>
+<pre><code class="language-python">b^2 = b·b
+b^4 = b^2·b^2
+b^8 = b^4·b^4
+</code></pre>
+<p>这个方法对于 2 的幂的指数工作良好。我们也可以使用这个递归规则，在求幂中利用逐步平方的优点：</p>
+<p><img src="img/20160907175856.jpg" alt="" /></p>
+<p>我们同样可以将这个方式表达为递归函数：</p>
+<pre><code class="language-py">&gt;&gt;&gt; def square(x):
+        return x*x
+&gt;&gt;&gt; def fast_exp(b, n):
+        if n == 0:
+            return 1
+        if n % 2 == 0:
+            return square(fast_exp(b, n//2))
+        else:
+            return b * fast_exp(b, n-1)
+&gt;&gt;&gt; fast_exp(2, 100)
+1267650600228229401496703205376
+</code></pre>
+<p><code>fast_exp</code>所生成的过程的空间和步骤数量随<code>n</code>以对数方式增长。为了弄清楚它，可以看出，使用<code>fast_exp</code>计算<code>b^2n</code>比计算<code>b^n</code>只需要一步额外的乘法操作。于是，我们能够计算的指数大小，在每次新的乘法操作时都会（近似）加倍。所以，计算<code>n</code>的指数所需乘法操作的数量，增长得像以<code>2</code>为底<code>n</code>的对数那样慢。这个过程拥有<code>Θ(log n)</code>的增长度。<code>Θ(log n)</code>和<code>Θ(n)</code>之间的差异在<code>n</code>非常大时变得显著。例如，<code>n</code>为<code>1000</code>时，<code>fast_exp</code>仅仅需要<code>14</code>个乘法操作，而不是<code>1000</code>。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="3.1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="3.3.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="3.1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="3.3.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+                <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>

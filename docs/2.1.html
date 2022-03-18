@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>2.1 引言 - python SICP 教程</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="favicon.svg">
+                        <link rel="shortcut icon" href="favicon.png">
+                <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+                <link rel="stylesheet" href="css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">SICP Python 描述 中文版</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="ch1.html">第一章 使用函数构建抽象</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="1.1.html">1.1 引言</a></li><li class="chapter-item expanded "><a href="1.2.html">1.2 编程元素</a></li><li class="chapter-item expanded "><a href="1.3.html">1.3 定义新的函数</a></li><li class="chapter-item expanded "><a href="1.4.html">1.4 实践指南：函数的艺术</a></li><li class="chapter-item expanded "><a href="1.5.html">1.5 控制</a></li><li class="chapter-item expanded "><a href="1.6.html">1.6 高阶函数</a></li></ol></li><li class="chapter-item expanded "><a href="ch2.html">第二章 使用对象构建抽象</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2.1.html" class="active">2.1 引言</a></li><li class="chapter-item expanded "><a href="2.2.html">2.2 数据抽象</a></li><li class="chapter-item expanded "><a href="2.3.html">2.3 序列</a></li><li class="chapter-item expanded "><a href="2.4.html">2.4 可变数据</a></li><li class="chapter-item expanded "><a href="2.5.html">2.5 面向对象编程</a></li><li class="chapter-item expanded "><a href="2.6.html">2.6 实现类和对象</a></li><li class="chapter-item expanded "><a href="2.7.html">2.7 泛用方法</a></li></ol></li><li class="chapter-item expanded "><a href="ch3.html">第三章 计算机程序的构造和解释</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="3.1.html">3.1 引言</a></li><li class="chapter-item expanded "><a href="3.2.html">3.2 函数和所生成的过程</a></li><li class="chapter-item expanded "><a href="3.3.html">3.3 递归数据结构</a></li><li class="chapter-item expanded "><a href="3.4.html">3.4 异常</a></li><li class="chapter-item expanded "><a href="3.5.html">3.5 组合语言的解释器</a></li><li class="chapter-item expanded "><a href="3.6.html">3.6 抽象语言的解释器</a></li></ol></li><li class="chapter-item expanded "><a href="ch4.html">第四章 分布式和并行计算</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="4.1.html">4.1 引言</a></li><li class="chapter-item expanded "><a href="4.2.html">4.2 分布式系统</a></li><li class="chapter-item expanded "><a href="4.3.html">4.3 并行计算</a></li></ol></li><li class="chapter-item expanded "><a href="ch5.html">第五章 序列和协程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="5.1.html">5.1 引言</a></li><li class="chapter-item expanded "><a href="5.2.html">5.2 隐式序列</a></li><li class="chapter-item expanded "><a href="5.3.html">5.3 协程</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">python SICP 教程</h1>
+
+                    <div class="right-buttons">
+                                                <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <ul>
+<li><a href="#21-%E5%BC%95%E8%A8%80">2.1 引言</a>
+<ul>
+<li><a href="#211-%E5%AF%B9%E8%B1%A1%E9%9A%90%E5%96%BB">2.1.1 对象隐喻</a></li>
+<li><a href="#212-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">2.1.2 原始数据类型</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="21-引言"><a class="header" href="#21-引言">2.1 引言</a></h1>
+<blockquote>
+<p>来源：<a href="http://www-inst.eecs.berkeley.edu/%7Ecs61a/sp12/book/objects.html#introduction">2.1   Introduction</a></p>
+<p>译者：<a href="https://github.com/wizardforcel">飞龙</a></p>
+<p>协议：<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
+</blockquote>
+<p>在第一章中，我们专注于计算过程，以及程序设计中函数的作用。我们看到了如何使用原始数据（数值）和原始操作（算术运算），如何通过组合和控制来形成复合函数，以及如何通过给予过程名称来创建函数抽象。我们也看到了高阶函数通过操作通用计算方法来提升语言的威力。这是编程的本质。</p>
+<p>这一章会专注于数据。数据允许我们通过使用已经获得的计算工具，表示和操作与世界有关的信息。脱离数据结构的编程可能会满足于探索数学特性，但是真实世界的情况，比如文档、关系、城市和气候模式，都拥有复杂的结构，它最好使用复合数据类型来表现。归功于互联网的高速发展，关于世界的大量结构信息可以免费从网上获得。</p>
+<h2 id="211-对象隐喻"><a class="header" href="#211-对象隐喻">2.1.1 对象隐喻</a></h2>
+<p>在这门课的开始，我们区分了函数和数据：函数执行操作，而数据被操作。当我们在数据中包含函数值时，我们承认数据也拥有行为。函数可以像数据一样被操作，但是也可以被调用来执行计算。</p>
+<p>在这门课中，对象作为我们对数据值的核心编程隐喻，它同样拥有行为。对象表示信息，但是同时和它们所表示的抽象概念行为一致。对象如何和其它对象交互的逻辑，和编码对象值的信息绑定在一起。在打印对象时，它知道如何以字母和数字把自己拼写出来。如果一个对象由几部分组成，它知道如何按照要求展示这些部分。对象既是信息也是过程，它们绑定在一起来展示复杂事物的属性、交互和行为。</p>
+<p>Python 中所实现的对象隐喻具有特定的对象语法和相关的术语，我们会使用示例来介绍。日期（<code>date</code>）就是一种简单对象。</p>
+<pre><code class="language-py">&gt;&gt;&gt; from datetime import date
+</code></pre>
+<p><code>date</code>的名字绑定到了一个类上面。类表示一类对象。独立的日期叫做这个类的实例，它们可以通过像函数那样在参数上调用这个类来构造，这些参数描述了实例。</p>
+<pre><code class="language-py">&gt;&gt;&gt; today = date(2011, 9, 12)
+</code></pre>
+<p>虽然<code>today</code>从原始数值中构造，它的行为就像日期那样。例如，将它与另一个日期相减会得到时间差，它可以通过调用<code>str</code>来展示为一行文本：</p>
+<pre><code class="language-py">&gt;&gt;&gt; str(date(2011, 12, 2) - today)
+'81 days, 0:00:00'
+</code></pre>
+<p>对象拥有属性，它们是带有名字的值，也是对象的一部分。Python 中，我们使用点运算符来访问对象属性：</p>
+<pre><code class="language-text">&lt;expression&gt; . &lt;name&gt;
+</code></pre>
+<p>上面的<code>&lt;expression&gt;</code>求值为对象，<code>&lt;name&gt;</code>是对象的某个属性名称。</p>
+<p>不像我们之前见过的名称，这些属性名称在一般的环境中不可用。反之，属性名称是点运算符之前的对象实例的特定部分。</p>
+<pre><code class="language-py">&gt;&gt;&gt; today.year
+2011
+</code></pre>
+<p>对象也拥有方法，它是值为函数的属性。在隐喻上，对象“知道”如何执行这些方法。方法从它们的参数和对象中计算出它们的结果。例如，<code>today</code>的<code>strftime</code>方法接受一个指定如何展示日期的参数（例如<code>%A</code>表示星期几应该以全称拼写）。</p>
+<pre><code class="language-py">&gt;&gt;&gt; today.strftime('%A, %B %d')
+'Monday, September 12'
+</code></pre>
+<p>计算<code>strftime</code>的返回值需要两个输入：描述输出格式的字符串，以及绑定到<code>today</code>的日期信息。这个方法使用日期特定的逻辑来产生结果。我们从不会说 2011 年九月十二日是星期一，但是知道一个人的工作日是日期的一部分。通过绑定行为和信息，Python 对象提供了可靠、独立的日期抽象。</p>
+<p>点运算符在 Python 中提供了另一种组合表达式。点运算符拥有定义好的求值过程。但是，点运算符如何求值的精确解释，要等到我们引入面向对象编程的完整范式，在几节之后。</p>
+<p>即使我们还不能精确描述对象如何工作，我们还是可以开始将数据看做对象，因为 Python 中万物皆对象。</p>
+<h2 id="212-原始数据类型"><a class="header" href="#212-原始数据类型">2.1.2 原始数据类型</a></h2>
+<p>Python 中每个对象都拥有一个类型。<code>type</code>函数可以让我们查看对象的类型。</p>
+<pre><code class="language-py">&gt;&gt;&gt; type(today)
+&lt;class 'datetime.date'&gt;
+</code></pre>
+<p>目前为止，我们学过的对象类型只有数值、函数、布尔值和现在的日期。我们也碰到了集合和字符串，但是需要更深入地学习它们。有许多其它的对象类型 -- 声音、图像、位置、数据连接等等 -- 它们的多数可以通过组合和抽象的手段来定义，我们在这一章会研究它们。Python 只有一小部分内建于语言的原始或原生数据类型。</p>
+<p>原始数据类型具有以下特性：</p>
+<ol>
+<li>原始表达式可以计算这些类型的对象，叫做字面值。</li>
+<li>内建的函数、运算符和方法可以操作这些对象。</li>
+</ol>
+<p>像我们看到的那样，数值是原始类型，数字字面值求值为数值，算术运算符操作数值对象：</p>
+<pre><code class="language-py">&gt;&gt;&gt; 12 + 3000000000000000000000000
+3000000000000000000000012
+</code></pre>
+<p>实际上，Python 包含了三个原始数值类型：整数（<code>int</code>）、实数（<code>float</code>）和复数（<code>complex</code>）。</p>
+<pre><code class="language-py">&gt;&gt;&gt; type(2)
+&lt;class 'int'&gt;
+&gt;&gt;&gt; type(1.5)
+&lt;class 'float'&gt;
+&gt;&gt;&gt; type(1+1j)
+&lt;class 'complex'&gt;
+</code></pre>
+<p>名称<code>float</code>来源于实数在 Python 中表示的方式：“浮点”表示。虽然数值表示的细节不是这门课的话题，一些<code>int</code>和<code>float</code>对象的高层差异仍然很重要。特别是，<code>int</code>对象只能表示整数，但是表示得更精确，不带有任何近似。另一方面，<code>float</code>对象可以表示很大范围内的分数，但是不能表示所有有理数。然而，浮点对象通常用于近似表示实数和有理数，舍入到某个有效数字的数值。</p>
+<p><strong>扩展阅读。</strong> 下面的章节介绍了更多的 Python 原始数据类型，专注于它们在创建实用数据抽象中的作用。Dive Into Python 3 中的<a href="http://diveintopython3.ep.io/native-datatypes.html">原始数据类型</a>一章提供了所有 Python 数据类型的实用概览，以及如何高效使用它们，还包含了许多使用示例和实践提示。你现在并不需要阅读它，但是要考虑将它作为宝贵的参考。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="ch2.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="2.2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="ch2.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="2.2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+                <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>

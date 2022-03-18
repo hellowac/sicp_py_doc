@@ -1,0 +1,367 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>5.3 协程 - python SICP 教程</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="favicon.svg">
+                        <link rel="shortcut icon" href="favicon.png">
+                <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+                <link rel="stylesheet" href="css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">SICP Python 描述 中文版</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="ch1.html">第一章 使用函数构建抽象</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="1.1.html">1.1 引言</a></li><li class="chapter-item expanded "><a href="1.2.html">1.2 编程元素</a></li><li class="chapter-item expanded "><a href="1.3.html">1.3 定义新的函数</a></li><li class="chapter-item expanded "><a href="1.4.html">1.4 实践指南：函数的艺术</a></li><li class="chapter-item expanded "><a href="1.5.html">1.5 控制</a></li><li class="chapter-item expanded "><a href="1.6.html">1.6 高阶函数</a></li></ol></li><li class="chapter-item expanded "><a href="ch2.html">第二章 使用对象构建抽象</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2.1.html">2.1 引言</a></li><li class="chapter-item expanded "><a href="2.2.html">2.2 数据抽象</a></li><li class="chapter-item expanded "><a href="2.3.html">2.3 序列</a></li><li class="chapter-item expanded "><a href="2.4.html">2.4 可变数据</a></li><li class="chapter-item expanded "><a href="2.5.html">2.5 面向对象编程</a></li><li class="chapter-item expanded "><a href="2.6.html">2.6 实现类和对象</a></li><li class="chapter-item expanded "><a href="2.7.html">2.7 泛用方法</a></li></ol></li><li class="chapter-item expanded "><a href="ch3.html">第三章 计算机程序的构造和解释</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="3.1.html">3.1 引言</a></li><li class="chapter-item expanded "><a href="3.2.html">3.2 函数和所生成的过程</a></li><li class="chapter-item expanded "><a href="3.3.html">3.3 递归数据结构</a></li><li class="chapter-item expanded "><a href="3.4.html">3.4 异常</a></li><li class="chapter-item expanded "><a href="3.5.html">3.5 组合语言的解释器</a></li><li class="chapter-item expanded "><a href="3.6.html">3.6 抽象语言的解释器</a></li></ol></li><li class="chapter-item expanded "><a href="ch4.html">第四章 分布式和并行计算</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="4.1.html">4.1 引言</a></li><li class="chapter-item expanded "><a href="4.2.html">4.2 分布式系统</a></li><li class="chapter-item expanded "><a href="4.3.html">4.3 并行计算</a></li></ol></li><li class="chapter-item expanded "><a href="ch5.html">第五章 序列和协程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="5.1.html">5.1 引言</a></li><li class="chapter-item expanded "><a href="5.2.html">5.2 隐式序列</a></li><li class="chapter-item expanded "><a href="5.3.html" class="active">5.3 协程</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">python SICP 教程</h1>
+
+                    <div class="right-buttons">
+                                                <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <ul>
+<li><a href="#53-%E5%8D%8F%E7%A8%8B">5.3 协程</a>
+<ul>
+<li><a href="#531-python-%E5%8D%8F%E7%A8%8B">5.3.1 Python 协程</a></li>
+<li><a href="#532-%E7%94%9F%E4%BA%A7%E8%BF%87%E6%BB%A4%E5%92%8C%E6%B6%88%E8%80%97">5.3.2 生产、过滤和消耗</a></li>
+<li><a href="#533-%E5%A4%9A%E4%BB%BB%E5%8A%A1">5.3.3 多任务</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="53-协程"><a class="header" href="#53-协程">5.3 协程</a></h2>
+<p>这篇文章的大部分专注于将复杂程序解构为小型、模块化组件的技巧。当一个带有复杂行为的函数逻辑划分为几个独立的、本身为函数的步骤时，这些函数叫做辅助函数或者子过程。子过程由主函数调用，主函数负责协调子函数的使用。</p>
+<p><img src="img/subroutine.png" alt="" /></p>
+<p>这一节中，我们使用协程，引入了一种不同的方式来解构复杂的计算。它是一种针对有序数据的任务处理方式。就像子过程那样，协程会计算复杂计算的一小步。但是，在使用协程时，没有主函数来协调结果。反之，协程会自发链接到一起来组成流水线。可能有一些协程消耗输入数据，并把它发送到其它协程。也可能有一些协程，每个都对发送给它的数据执行简单的处理步骤。最后可能有另外一些协程输出最终结果。</p>
+<p><img src="img/coroutine.png" alt="" /></p>
+<p>协程和子过程的差异是概念上的：子过程在主函数中位于下级，但是协程都是平等的，它们协作组成流水线，不带有任何上级函数来负责以特定顺序调用它们。</p>
+<p>这一节中，我们会学到 Python 如何通过<code>yield</code>和<code>send()</code>语句来支持协程的构建。之后，我们会看到协程在流水线中的不同作用，以及协程如何支持多任务。</p>
+<h3 id="531-python-协程"><a class="header" href="#531-python-协程">5.3.1 Python 协程</a></h3>
+<p>在之前一节中，我们介绍了生成器函数，它使用<code>yield</code>来返回一个值。Python 的生成器函数也可以使用<code>(yield)</code>语句来接受一个值。生成器对象上有两个额外的方法：<code>send()</code>和<code>close()</code>，创建了一个模型使对象可以消耗或产出值。定义了这些对象的生成器函数叫做协程。</p>
+<p>协程可以通过<code>(yield)</code>语句来消耗值，向像下面这样：</p>
+<pre><code class="language-py">value = (yield)
+</code></pre>
+<p>使用这个语法，在带参数调用对象的<code>send</code>方法之前，执行流会停留在这条语句上。</p>
+<pre><code class="language-py">coroutine.send(data)
+</code></pre>
+<p>之后，执行会恢复，<code>value</code>会被赋为<code>data</code>的值。为了发射计算终止的信号，我们需要使用<code>close()</code>方法来关闭协程。这会在协程内部产生<code>GeneratorExit</code>异常，它可以由<code>try/except</code>子句来捕获。</p>
+<p>下面的例子展示了这些概念。它是一个协程，用于打印匹配所提供的模式串的字符串。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def match(pattern):
+        print('Looking for ' + pattern)
+        try:
+            while True:
+                s = (yield)
+                if pattern in s:
+                    print(s)
+        except GeneratorExit:
+            print(&quot;=== Done ===&quot;)
+</code></pre>
+<p>我们可以使用一个模式串来初始化它，之后调用<code>__next__()</code>来开始执行：</p>
+<pre><code class="language-py">&gt;&gt;&gt; m = match(&quot;Jabberwock&quot;)
+&gt;&gt;&gt; m.__next__()
+Looking for Jabberwock
+</code></pre>
+<p>对<code>__next__()</code>的调用会执行函数体，所以<code>&quot;Looking for jabberwock&quot;</code>会被打印。语句会一直持续执行，直到遇到<code>line = (yield)</code>语句。之后，执行会暂停，并且等待一个发送给<code>m</code>的值。我们可以使用<code>send</code>来将值发送给它。</p>
+<pre><code class="language-py">&gt;&gt;&gt; m.send(&quot;the Jabberwock with eyes of flame&quot;)
+the Jabberwock with eyes of flame
+&gt;&gt;&gt; m.send(&quot;came whiffling through the tulgey wood&quot;)
+&gt;&gt;&gt; m.send(&quot;and burbled as it came&quot;)
+&gt;&gt;&gt; m.close()
+=== Done ===
+</code></pre>
+<p>当我们以一个值调用<code>m.send</code>时，协程<code>m</code>内部的求值会在<code>line = (yield)</code>语句处恢复，这里会把发送的值赋给<code>line</code>变量。<code>m</code>中的语句会继续求值，如果匹配的话会打印出那一行，并继续执行循环，直到再次进入<code>line = (yield)</code>。之后，<code>m</code>中的求值会暂停，并在<code>m.send</code>调用后恢复。</p>
+<p>我们可以将使用<code>send()</code>和<code>yield</code>的函数链到一起来完成复杂的行为。例如，下面的函数将名为<code>text</code>的字符串分割为单词，并把每个单词发送给另一个协程。</p>
+<p>每个单词都发送给了绑定到<code>next_coroutine</code>的协程，使<code>next_coroutine</code>开始执行，而且这个函数暂停并等待。它在<code>next_coroutine</code>暂停之前会一直等待，随后这个函数恢复执行，发送下一个单词或执行完毕。</p>
+<p>如果我们将上面定义的<code>match</code>和这个函数链到一起，我们就可以创建出一个程序，只打印出匹配特定单词的单词。</p>
+<pre><code class="language-py">&gt;&gt;&gt; text = 'Commending spending is offending to people pending lending!'
+&gt;&gt;&gt; matcher = match('ending')
+&gt;&gt;&gt; matcher.__next__()
+Looking for ending
+&gt;&gt;&gt; read(text, matcher)
+Commending
+spending
+offending
+pending
+lending!
+=== Done ===
+</code></pre>
+<p><code>read</code>函数向协程<code>matcher</code>发送每个单词，协程打印出任何匹配<code>pattern</code>的输入。在<code>matcher</code>协程中，<code>s = (yield)</code>一行等待每个发送进来的单词，并且在执行到这一行之后将控制流交还给<code>read</code>。</p>
+<p><img src="img/read-match-coroutine.png" alt="" /></p>
+<h3 id="532-生产过滤和消耗"><a class="header" href="#532-生产过滤和消耗">5.3.2 生产、过滤和消耗</a></h3>
+<p>协程基于如何使用<code>yield</code>和<code>send()</code>而具有不同的作用：</p>
+<p><img src="img/produce-filter-consume.png" alt="" /></p>
+<ul>
+<li><strong>生产者</strong> 创建序列中的物品，并使用<code>send()</code>，而不是<code>(yield)</code>。</li>
+<li><strong>过滤器</strong> 使用<code>(yield)</code>来消耗物品并将结果使用<code>send()</code>发送给下一个步骤。</li>
+<li><strong>消费者</strong> 使用<code>(yield)</code>来消耗物品，但是从不发送。</li>
+</ul>
+<p>上面的<code>read</code>函数是一个生产者的例子。它不使用<code>(yield)</code>，但是使用<code>send</code>来生产数据。函数<code>match</code>是个消费者的例子。它不使用<code>send</code>发送任何东西，但是使用<code>(yield)</code>来消耗数据。我们可以将<code>match</code>拆分为过滤器和消费者。过滤器是一个协程，只发送与它的模式相匹配的字符串。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def match_filter(pattern, next_coroutine):
+        print('Looking for ' + pattern)
+        try:
+            while True:
+                s = (yield)
+                if pattern in s:
+                    next_coroutine.send(s)
+        except GeneratorExit:
+            next_coroutine.close()
+</code></pre>
+<p>消费者是一个函数，只打印出发送给它的行：</p>
+<pre><code class="language-py">&gt;&gt;&gt; def print_consumer():
+        print('Preparing to print')
+        try:
+            while True:
+                line = (yield)
+                print(line)
+        except GeneratorExit:
+            print(&quot;=== Done ===&quot;)
+</code></pre>
+<p>当过滤器或消费者被构建时，必须调用它的<code>__next__</code>方法来开始执行：</p>
+<pre><code class="language-py">&gt;&gt;&gt; printer = print_consumer()
+&gt;&gt;&gt; printer.__next__()
+Preparing to print
+&gt;&gt;&gt; matcher = match_filter('pend', printer)
+&gt;&gt;&gt; matcher.__next__()
+Looking for pend
+&gt;&gt;&gt; read(text, matcher)
+spending
+pending
+=== Done ===
+</code></pre>
+<p>即使名称<code>filter</code>暗示移除元素，过滤器也可以转换元素。下面的函数是个转换元素的过滤器的示例。它消耗字符串并发送一个字典，包含了每个不同的字母在字符串中的出现次数。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def count_letters(next_coroutine):
+        try:
+            while True:
+                s = (yield)
+                counts = {letter:s.count(letter) for letter in set(s)}
+                next_coroutine.send(counts)
+        except GeneratorExit as e:
+            next_coroutine.close()
+</code></pre>
+<p>我们可以使用它来计算文本中最常出现的字母，并使用一个消费者，将字典合并来找出最常出现的键。</p>
+<pre><code class="language-py">&gt;&gt;&gt; def sum_dictionaries():
+        total = {}
+        try:
+            while True:
+                counts = (yield)
+                for letter, count in counts.items():
+                    total[letter] = count + total.get(letter, 0)
+        except GeneratorExit:
+            max_letter = max(total.items(), key=lambda t: t[1])[0]
+            print(&quot;Most frequent letter: &quot; + max_letter)
+</code></pre>
+<p>为了在文件上运行这个流水线，我们必须首先按行读取文件。之后，将结果发送给<code>count_letters</code>，最后发送给<code>sum_dictionaries</code>。我们可以服用<code>read</code>协程来读取文件中的行。</p>
+<pre><code class="language-py">&gt;&gt;&gt; s = sum_dictionaries()
+&gt;&gt;&gt; s.__next__()
+&gt;&gt;&gt; c = count_letters(s)
+&gt;&gt;&gt; c.__next__()
+&gt;&gt;&gt; read(text, c)
+Most frequent letter: n
+</code></pre>
+<h3 id="533-多任务"><a class="header" href="#533-多任务">5.3.3 多任务</a></h3>
+<p>生产者或过滤器并不受限于唯一的下游。它可以拥有多个协程作为它的下游，并使用<code>send()</code>向它们发送数据。例如，下面是<code>read</code>的一个版本，向多个下游发送字符串中的单词：</p>
+<pre><code class="language-py">&gt;&gt;&gt; def read_to_many(text, coroutines):
+        for word in text.split():
+            for coroutine in coroutines:
+                coroutine.send(word)
+        for coroutine in coroutines:
+            coroutine.close()
+</code></pre>
+<p>我们可以使用它来检测多个单词中的相同文本：</p>
+<pre><code class="language-py">&gt;&gt;&gt; m = match(&quot;mend&quot;)
+&gt;&gt;&gt; m.__next__()
+Looking for mend
+&gt;&gt;&gt; p = match(&quot;pe&quot;)
+&gt;&gt;&gt; p.__next__()
+Looking for pe
+&gt;&gt;&gt; read_to_many(text, [m, p])
+Commending
+spending
+people
+pending
+=== Done ===
+=== Done ===
+</code></pre>
+<p>首先，<code>read_to_many</code>在<code>m</code>上调用了<code>send(word)</code>。这个协程正在等待循环中的<code>text = (yield)</code>，之后打印出所发现的匹配，并且等待下一个<code>send</code>。之后执行流返回到了<code>read_to_many</code>，它向<code>p</code>发送相同的行。所以，<code>text</code>中的单词会按照顺序打印出来。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="5.2.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="5.2.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                            </nav>
+
+        </div>
+
+                <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>
